@@ -1,4 +1,5 @@
 var image;
+var imagebase64;
 
 function clip() {
 
@@ -10,7 +11,7 @@ function clip() {
       "y2": ""+c.y2,
       "width": ""+c.w,
       "height": ""+c.h,
-
+      "base64":imagebase64
     }
 
     $(".upImage .doUpImage p").css({
@@ -81,6 +82,7 @@ function showImage() {
       $(".img>*").remove();
 
       $(".img").append("<img id='target' src='" + e.target.result + "'alt='' style='height:100%;'>");
+      imagebase64 = e.target.result ;
       clip();
     }
 
