@@ -1,0 +1,179 @@
+
+.navbar-inverse {
+  background-image: linear-gradient(to bottom,rgba(0, 0, 0, 1),rgba(0, 0, 0, 1)) !important;
+}
+
+.jumbotron-login .per-container {
+  padding: 50px 0;
+
+}
+.jumbotron-login {
+  margin-bottom: 0;
+}
+.jumbotron-login .container-fluid {
+  height: 100%;
+}
+.jumbotron-login .container-fluid .row1 {
+  height: 100%;
+
+}
+.jumbotron-login .upDate {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  height: 100%;
+}
+.jumbotron-login .upDate .row {
+ padding: 10px 20px;
+ display: flex;
+ flex-direction: column;
+
+
+}
+
+.jumbotron-login .upDate {
+  padding: 0 10%;
+}
+
+.jumbotron-login .upDate .row input {
+  width: 100%%;
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-radius: 2px;
+  border: 1px solid rgba(200, 200, 200, 1);
+  outline: none;
+}
+.jumbotron-login .upDate .row input:focus {
+  box-shadow: 0px 0px 2px 2px rgba(210, 210, 210, 0.9);
+
+}
+.jumbotron-login .upDate .securitycode input{
+
+ width: 60%;
+}
+.jumbotron-login .upDate  .securitycode a {
+
+  background-color: rgba(0, 105, 111, 1);
+  color: rgba(255, 255, 255, 1);
+  padding: 12px 10px;
+  border-radius: 2px;
+  margin-left: 4px;
+}
+.jumbotron-login .upDate  .securitycode a:hover {
+  text-decoration: none;
+  background-color: rgba(153, 180, 181, 1);
+  color: rgba(0, 0, 0, 1);
+}
+.jumbotron-login .upDate .submit a {
+  color: rgba(255, 255, 255, 1);
+  padding: 10px 50px;
+  background-color: rgba(0, 0, 0, 1);
+  text-align: center;
+
+
+}
+
+.jumbotron-login .upDate .submit a:hover {
+  text-decoration: none;
+  background-color: rgba(200, 200, 200, 1);
+  color: rgba(0, 0, 0, 1);
+}
+.jumbotron-login .container-fluid .row1 .logo {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+.jumbotron-login .container-fluid .row1 .logo strong {
+  border-radius: 10%;
+  border: 10px solid rgba(0, 0, 0, 1);
+  font-size:5em;
+
+}
+
+.headN {
+  margin-bottom: 0;
+  border: 0;
+}
+
+.navbar .nav .active {
+  background-color: #eee;
+  color: rgba(0, 0, 0, 1);
+
+}
+.navbar .nav .active:hover {
+  background-color: #eee;
+  color: rgba(0, 0, 0, 1);
+
+}
+
+.navbar .nav a {
+  transition: all 1.0s ease-out;
+  cursor: pointer;
+
+}
+
+.img {
+  height: 40em;
+  width: 100%;
+  overflow:hidden;
+  background-color: rgba(0, 0, 0, 0.5);
+
+
+}
+
+#upImage {
+  display: none;
+}
+.upImage {
+  padding-top: 20px;
+
+}
+.upImage .doUpImage label {
+   color: rgba(255, 255, 255, 1);
+   background-color: rgba(0, 0, 0, 1);
+   padding: 10px 0;
+   width: 60%;
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+}
+.upImage .doUpImage p {
+  color: red;
+   padding: 10px 0;
+   width: 60%;
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+
+}
+.upImage .doUpImage label:hover
+{
+  background-color: rgba(200, 200, 200, 1);
+  color: rgba(255, 255, 255, 1);
+    cursor: pointer;
+}
+.upImage .doUpImage a:hover {
+  text-decoration:none;
+
+}
+.upImage .doUpImage {
+  margin: 20px 0;
+}
+.upImage .doUpImage div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+div[style="width: 100%; height: 100%; z-index: 310; position: absolute; overflow: hidden;"]
+{
+
+  border-radius: 50%;
+}

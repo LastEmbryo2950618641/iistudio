@@ -1,0 +1,318 @@
+html,body {
+  height: 100%;
+
+}
+
+a {
+  cursor:pointer;
+}
+#backImg {
+  position:fixed;
+  height: 100%;
+  width: 100%;
+  z-index: -100;
+  filter: brightness(40%);
+}
+.jumbotron {
+  background-color: rgba(255, 0, 0, 0);
+  margin: 30px 0;
+}
+.jumbotron-enter {
+
+  box-sizing:border-box;
+  height: 100% ;
+  background-image:linear-gradient(to top, rgba(80, 80, 80, 1),  rgba(0, 0, 0, 1));
+  background-size: 100% auto;
+}
+
+#logo {
+  font-size: 5.5em;
+  color: white ;
+  font-weight:bold;
+}
+#enter {
+  padding: 80px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#enter p {
+  color: white;
+  font-size: 150%;
+}
+#enter a {
+  color: white;
+  font-size: 200%;
+}
+
+enter a:hover
+{
+  cursor: pointer;
+}
+#enter a:hover::after {
+  content: '<<';
+
+}
+#enter a:hover::before {
+  content: '>>';
+
+
+}
+#enter span {
+
+position: relative;
+ margin-top: 200px;
+  color: white;
+  font-size: 50px;
+  animation: move 1s linear infinite alternate ;
+  -moz-animation: move 1s linear infinite alternate ;	/* Firefox */
+  -webkit-animation: move 1s linear infinite alternate ;	/* Safari 和 Chrome */
+  -o-animation: move 1s linear infinite alternate ;	/* Opera */
+}
+@keyframes move
+{
+0%   {top: 0;}
+25%  {top: 10px;}
+50%  {top: 20px;}
+100% {top: 30px;}
+}
+
+.jumbotron-cover {
+  box-sizing:border-box;
+  height: 100%;
+}
+
+.jumbotron-now {
+  height: 100%;
+  background-size: 100% auto;
+
+}
+.jumbotron-now-cover {
+  height: 100%;
+  padding: 50px 0;
+}
+.jumbotron-now .now-text {
+  font-family:fantasy;
+  color: white;
+  margin-top: 100px;
+}
+.jumbotron-now .now-text h2{
+  display: inline-block;
+  padding: 50px 0;
+}
+
+.jumbotron-now .now-text p{
+  font-size: 18px;
+  line-height: 18px;
+}
+.jumbotron-servce {
+  background-color: rgba(0,0,0, 1);
+
+
+}
+.jumbotron-servce  .container {
+  height: 100%;
+  background-image:linear-gradient(to right ,rgba(155, 124, 255, 1),rgba(59, 67, 180, 1));
+}
+.jumbotron-servce  {
+  font-family:Montserrat;
+  font-size:1em;
+  font-weight: 100;
+  color: white;
+  margin-bottom: 0;
+}
+.jumbotron-servce  .title {
+  font-size: 3em;
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+}
+.jumbotron-servce  .title span{
+  font-size: 0.3em;
+}
+.jumbotron-servce .col {
+  display: flex;
+  flex-direction: column;
+}
+.jumbotron-servce .col .item {
+  padding: 40px 0;
+}
+.jumbotron-servce .row {
+  position: relative;
+}
+.jumbotron-servce .col .title {
+  font-size: 20px;
+  font-family:inherit;
+
+}
+
+.jumbotron-time {
+ background-color: rgba(0,0,0, 1);
+ margin-top: 0px;
+ margin-bottom: 0px;
+ font-family: Montserrat;
+ font-size: 18px;
+ font-weight: lighter;
+ padding-bottom: 50px;
+
+}
+.jumbotron-time .container {
+   background-color: rgba(255, 255, 255,1);
+}
+.jumbotron-time ul {
+   list-style: none;
+   padding: 0;
+   padding: 40px 10px;
+   background-color: rgba(255, 255, 255, 1);
+   border-radius: 2px;
+   border:1px solid rgba(200, 200, 200, 1);
+}
+.jumbotron-time .glyphicon {
+  color: rgba(109, 118, 255, 1);
+  padding-right: 5px;
+}
+
+.jumbotron-time ul li {
+  border-bottom: 1px solid rgba(200, 200, 200, 1);
+  padding: 10px 40px;
+
+}
+.jumbotron-time .title {
+  padding: 40px 0;
+}
+.jumbotron-time .main-title {
+  font-size: 30px;
+}
+.jumbotron-time .weeks {
+  padding: 50px 0;
+  z-index: 100;
+  font-size: 24px;
+
+}
+.jumbotron-time .week {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+}
+.jumbotron-menber {
+  padding-top: 0;
+  background-color: rgba(0, 0, 0, 1);
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-bottom: 100px;
+}
+.jumbotron-menber .title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  color: rgba(255, 255, 255, 1);
+  padding: 80px 0;
+  font-family: Montserrat;
+  font-weight: 100;
+}
+.jumbotron-menber img {
+  border-radius: 50%;
+
+
+}
+.jumbotron-menber .per {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+   font-size: 1.2rem;
+   color: rgba(255, 255, 255, 1);
+
+   font-family: Montserrat;
+   font-weight: 200;
+}
+.jumbotron-menber  .intro {
+  padding: 10px 20px 40px 20px;
+}
+
+.jumbotron-menber .item {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.jumbotron-contact {
+  background-color: rgba(255, 255, 255, 1);
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.jumbotron-contact .advice strong {
+  font-size: 2em;
+  font-family: Montserrat;
+  font-weight: 100;
+}
+.jumbotron-contact .advice input {
+  outline: none;
+  padding: 10px 10px;
+  border-radius: 3px;
+  border: 1px solid rgba(200, 200,200, 1);
+  width: 20em;
+  margin-top: 20px;
+}
+.jumbotron-contact .advice input:focus {
+  box-shadow: 0 0 1px 1px rgba(200, 200, 200, 0.7);
+
+}
+
+.jumbotron-contact .advice a {
+  font-family: Montserrat;
+  font-weight: 100;
+  padding: 11px 10px;
+  border-radius: 3px;
+  color: rgba(255, 255, 255,1);
+  background-color: rgba(0, 0, 0, 1);
+}
+
+.jumbotron-contact .advice a:hover{
+  text-decoration: none;
+  padding: 12px 10px;
+  border-radius: 3px;
+  color: rgba(0, 0, 0,1);
+  background-color: rgba(200, 200, 200, 1);
+}
+
+.jumbotron-contact .follow strong{
+  font-size: 2em;
+  font-family: Montserrat;
+  font-weight: 100;
+  padding: 0 15px;
+}
+
+.jumbotron-contact .item {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+}
+
+
+.headtofade {
+    transition:background-image 1.0s ease-out;
+    background-image:linear-gradient(to bottom,rgba(0,0,0,1),rgba(0,0,0,1));
+}
+
+.clearFloat::after,
+.clearFloat::before
+ {
+   content: "";
+   display: block;
+   clear: both;
+}
+.center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}

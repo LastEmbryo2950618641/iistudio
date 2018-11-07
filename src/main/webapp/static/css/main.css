@@ -1,0 +1,10 @@
+.indiv .headimage img {
+  height: 100%;
+  border-radius: 50%;
+}
+
+.indiv .headimage {
+  height: 50px;
+  padding: 10px;
+
+}
