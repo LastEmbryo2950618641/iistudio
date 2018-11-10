@@ -4,64 +4,57 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 /**
-<<<<<<< HEAD
- * @ClassName:Code
- * @Description:¶ÔÓÚÈ¨ÏÞÊµÌå
- * @author:chengxiang
- * @date:2018Äê11ÔÂ9ÈÕ
- * @version 1.0
 =======
  * @ClassName:Privilege
- * @Description:Model£¬È¨ÏÞÊµÌåÀà
- * @author:ÁõÆæ
+ * @Description:Modelï¿½ï¿½È¨ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½
+ * @author:ï¿½ï¿½ï¿½ï¿½
  * @date:2018.11.8
  * @version:1.0
  *
->>>>>>> b360b0c67f8c66d105d9075538743464c192aca2
  */
 @Component
 @Scope("singleton")
 public class Privilege {
-	//È¨ÏÞµÈ¼¶
+	//È¨ï¿½ÞµÈ¼ï¿½
 	private String id;
-	//ÃèÊö
+	//ï¿½ï¿½ï¿½ï¿½
 	private String description;
-	
-	
+
+
 	/**
-	 * @Description:»ñÈ¡id
+	 * @Description:ï¿½ï¿½È¡id
 	 * @return String
 	 */
 	public String getId() {
 		return id;
 	}
 	/**
-	 * @Description:ÉèÖÃid
+	 * @Description:ï¿½ï¿½ï¿½ï¿½id
 	 * @return String
 	 */
 	public void setId(String id) {
 		this.id = id;
 	}
 	/**
-	 * @Description:»ñµÃdescription
+	 * @Description:ï¿½ï¿½ï¿½ï¿½description
 	 * @return String
 	 */
 	public String getDescription() {
 		return description;
 	}
 	/**
-	 * @Description:ÉèÖÃdescription
+	 * @Description:ï¿½ï¿½ï¿½ï¿½description
 	 * @return String
 	 */
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
-	
+
+
 	public String tocheck() {
-		
+
 		return description;
-		
+
 	}
-	
+
 }

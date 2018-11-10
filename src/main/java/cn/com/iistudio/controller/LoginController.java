@@ -20,66 +20,54 @@ import cn.com.iistudio.service.serviceinter.LoginServiceInter;
 
 /**
  * @ClassName:LoginController
- * @Description:¶ÔÓÚµÇÂ¼×ö³ö¿ØÖÆ
+ * @Description:ï¿½ï¿½ï¿½Úµï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  * @author:chengxiang
- * @date:2018Äê11ÔÂ9ÈÕ
+ * @date:2018ï¿½ï¿½11ï¿½ï¿½9ï¿½ï¿½
  * @version 1.0
-=======
 /**
  * @ClassName:LoginController
- * @Description:Controller£¬´¦ÀíµÇÂ¼²Ù×÷
- * @author:ÁõÆæ
+ * @Description:Controllerï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½
+ * @author:ï¿½ï¿½ï¿½ï¿½
  * @date:2018.11.8
  * @version:1.0
  *
->>>>>>> b360b0c67f8c66d105d9075538743464c192aca2
  */
 @Controller
 @RequestMapping("/login")
 public class LoginController {
-	
-<<<<<<< HEAD
-	@Autowired
-	LoginServiceInter loginServiceInter;
-	@Autowired
-	CheckInter CheckInter;
-	
-	
-	
-	//Ìø×ªµ½µÇÂ¼½çÃæ
+
 =======
-	  
+
     /**
      * @Title: /login/loginAccount.asp
-     * @Description:À¹½Øµ½´ï¡°/login/loginAccount.asp¡±µÄurl£¬Ìø×ªµ½main/loginpage.jsp
+     * @Description:ï¿½ï¿½ï¿½Øµï¿½ï¿½ï¡°/login/loginAccount.aspï¿½ï¿½ï¿½ï¿½urlï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½main/loginpage.jsp
      * @param
      * @return:ModelAndView
      * @throws
      */
-	
-	
->>>>>>> b360b0c67f8c66d105d9075538743464c192aca2
+
+
 		@RequestMapping("loginAccount.asp")
 		public ModelAndView toRegisterPage()
 		{
-			
+
 			ModelAndView modelAndView =new ModelAndView();
 			modelAndView.setViewName("main/loginpage");
 			return modelAndView;
 		}
 		/**
 		 * @Title:loginAccount.asp
-		 * @description:¶ÔÓÚÑéÖ¤Âë½øÐÐÅÐ¶Ï
+		 * @description:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½
 		 * @param code
 		 * @return boolean
-		 * 
+		 *
 		 */
-		
+
 		@RequestMapping("login.code")
 		@ResponseBody
 		public boolean toCheck(@RequestBody Code code) {
 			System.out.println(code.getSecuritycode());
-			
+
 			if("8888".equals(code.getSecuritycode()))
 			{
 		        return true;
@@ -88,15 +76,15 @@ public class LoginController {
 			{
 				return false;
 			}
-			
+
 		}
-		
+
 		/**
 		 * @Title:loginCheck.php
-		 * @description:¶ÔÓÚÓÃ»§µÇÂ¼ÐÅÏ¢ÅÐ¶Ï
+		 * @description:ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Â¼ï¿½ï¿½Ï¢ï¿½Ð¶ï¿½
 		 * @param vlaUser
 		 * @return boolean
-		 * 
+		 *
 		 */
 		@ResponseBody
 		@RequestMapping(value="loginCheck.php")
@@ -110,13 +98,13 @@ public class LoginController {
 				    System.out.println(user.getGender());
 				    System.out.println(user.getIntroduce());
 					return true;
-				
+
 			}else {
-			
+
 			System.out.println("false");
 			return false;
-			}	
-			
+			}
+
 		}
 
 }
