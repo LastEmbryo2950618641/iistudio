@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.com.iistudio.mapper.RegisterMapper">
  
+ <!-- 写入注册信息 -->
 <insert id="writeTourist" parameterType="cn.com.iistudio.entity.User">
   
   INSERT  INTO TouristUser(NickName,UserName,Password,Gender,HeadImage,Email,Tel) VALUES(#{nickName},#{userName},#{password},#{gender},#{headImage},#{email},#{tel})

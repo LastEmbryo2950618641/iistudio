@@ -4,6 +4,7 @@ var imagebase64;
 function clip() {
 
   var upImage = function(c) {
+	 
     image = {
       "x": ""+c.x,
       "y": ""+c.y,
@@ -13,6 +14,7 @@ function clip() {
       "height": ""+c.h,
       "base64":imagebase64
     }
+    alert("x:"+image.x+"  h:"+image.height);
 
     $(".upImage .doUpImage p").css({
       "color": "green"
@@ -117,79 +119,103 @@ function submit() {
             if (email.length <= 320) {
               if (res.emailR.test(email)) {
                 code = $("input[name='securitycode']").val();
-                var isSuccess;
+                
+               
+                
                 var codeJson = {
-                  "securitycode": code
+                  "securityCode": code
                 };
                 var strJson = JSON.stringify(codeJson);
+                
                 $.ajax ({
                   type: "POST",
-                  url: "",
+                  url: "/525station/resgiter/Validation",
                   contentType: "application/json; charset=utf-8",
                   data: strJson,
                   dataType: "json",
-                  success: function(message) {
+                  success: function(data) {
+                	////////////////////////////////////////////////////
+                                    
+                                        	  ///////////////////////
+                                        	  if(data)
+                               	    	   {
+                                       	 var registerData = {
+                                                    "nickname":nickname,
+                                                    "username":username,
+                                                    "password":password,
+                                                    "gender":gender,
+                                                    "tell":tell,
+                                                    "email":email
+                                                  };
 
-                            isSuccess = true;
-                  },
-                  error: function(message) {
-                        alert("验证码错误");
-                        isSuccess = false;
-                  }
+                                                  var registerDataJson = JSON.stringify(registerData);
+                                                  $.ajax({
+                                                    type: "POST",
+                                                    url: "/525station/resgiter/doResgiter",
+                                                    contentType: "application/json; charset=utf-8",
+                                                    data: registerDataJson,
+                                                    dataType: "json",
+                                                    success: function(message) {
+                                                    	alert(data);
+                                                 	   if(data)
+                                                 		   {
+                                               	   alert(image.base64);
+                                               	  var imageJson = JSON.stringify(image);
+                                                     $.ajax ({
+                                                       type: "POST",
+                                                       url: "/525station/resgiter/upImage",
+                                                       contentType: "application/json; charset=utf-8",
+                                                       data: imageJson,
+                                                       dataType: "json",
+                                                       success: function(data) {
+                                                    	   
+                                                    	   
+                                                    	   window.location.assign("/525station/resgiter/loginAccount.asp");
+                                                       },
+                                                       error: function(data) {
+                                                           alert("图片上传错误");
+                                                          isSuccess = false;
+                                                        }
+                                                      });
+                                                    }
+                                                       else
+                                                	   {
+                                                	   alert("数据存储失败");
+                                                	   }
+                    	   
+                                                    	   
+                                                    	
+                                                    },
+                                                    error: function(message) {
+                                                       alert("注册信息上传错误");
+                                                       isSuccess = false;
+                                                    }
+                                                  });
+                                                  }
+ 
+				                               	       else
+				                               	    	   {
+				                               	    	   alert("数据存储失败");
+				                               	    	   }
+				                                        	  
+                                        	  
+                                    ////////////////////////////
+                                        	  
+                                        
+                                   
+            /////////////////////////////////////////////////////////////
+                        },    
+                  error:function(data){
+                	 
+                	  alert("验证码上传失败");
+         	         console.log("ajax错误类型："+type);
+         	         console.log(err);
+         	      }
+
                 });
-
-                if(isSuccess)
-                {
-                   var imageJson = JSON.stringify(image);
-                   $.ajax ({
-                     type: "POST",
-                     url: "",
-                     contentType: "application/json; charset=utf-8",
-                     data: imageJson,
-                     dataType: "json",
-                     success: function(message) {
-
-                               isSuccess = true;
-                     },
-                     error: function(message) {
-                        alert("图片上传错误");
-                       isSuccess = false;
-                     }
-                   });
-
-                }
-
-              if(isSuccess) {
-                var nickname, username, password, gender, tell, email;
-                var registerData = {
-                  "nickname":nickname,
-                  "username":username,
-                  "password":password,
-                  "gender":gender,
-                  "tell":tell,
-                  "email":email
-                };
-
-                var registerDataJson = JSON.stringify(registerData);
-                $.ajax({
-                  type: "POST",
-                  url: "",
-                  contentType: "application/json; charset=utf-8",
-                  data: registerDataJson,
-                  dataType: "json",
-                  success: function(message) {
-
-                            isSuccess = true;
-                            window.location.assign("");
-                  },
-                  error: function(message) {
-                     alert("注册信息上传错误");
-                    isSuccess = false;
-                  }
-                });
-
-
-              }
+                
+                
+               
               } else {
                 {
                   alert("邮件必须按照格式:xxx@xxx.com");

@@ -3,19 +3,36 @@ package cn.com.iistudio.entity;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+/**
+ * @ClassName:User
+ * @Description:用户实体类，当前用户
+ * @author:刘奇
+ * @date:2018.11.8
+ * @version:1.0
+ *
+ */
+
 @Component
 @Scope("session")
 public class User {
 	
-	private String nickName;
-	private String userName;
-	private String password;
-	private String gender;
-	private String headImage;
-	private String email;
-	private String tel;
-	private String introduce;
-	private Privilege privilege;
+	private String nickName;//昵称
+	private String userName;//用户名
+	private String password;//密码
+	private String gender;//性别
+	private String headImage;//头像地址
+	private String email;//邮件
+	private String tel;//电话号码
+	private String introduce;//自我介绍
+	private Privilege privilege;//权限
+	
+	
+	
+	  
+    /**
+     * 
+     * @Description:geter()，seter()方法
+     */
 	
 	public String getNickName() {
 		return nickName;
