@@ -10,11 +10,20 @@ import org.springframework.web.servlet.ModelAndView;
 import cn.com.iistudio.entity.Privilege;
 import cn.com.iistudio.service.serviceinter.TestServiceInter;
 
+
+/**
+ * @ClassName:Test
+ * @Description:Controller，测试Controller
+ * @author:刘奇
+ * @date:2018.11.8
+ * @version:1.0
+ *
+ */
 @Controller
 @RequestMapping("/test")
 public class Test {
 	
-	
+	//测试用，sevice接口
 	@Autowired
 	TestServiceInter testServiceIpml;
 	
@@ -22,6 +31,13 @@ public class Test {
 
 	
 
+	/**
+     * @Title:/resgiter/test.do
+     * @Description:测试用，是否可以向页面传值
+     * @param:upUser
+     * @return:boolean
+     * @throws
+     */
 	@RequestMapping("/test.do")
 	public ModelAndView test()
 	{

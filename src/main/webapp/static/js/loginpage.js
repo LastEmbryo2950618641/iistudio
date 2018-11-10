@@ -12,6 +12,8 @@ function submit() {
     if (res.usernameR.test(username)) {
       password = $("input[name='password']").val();
       if (res.passwordR.test(password)) {
+    	  
+    	  alert(22);
         var isSuccess;
         code = $("input[name='securitycode']").val();
         var codeJson = {
@@ -20,7 +22,7 @@ function submit() {
         var strJson = JSON.stringify(codeJson);
         $.ajax ({
           type: "POST",
-          url: "",
+          url: "/525station/login/login.code",
           contentType: "application/json; charset=utf-8",
           data: strJson,
           dataType: "json",
@@ -34,35 +36,35 @@ function submit() {
           }
         });
 
-        if(isSuccess) {
+      
+        
+        alert(111);
           var username, password;
           var loginData = {
 
             "username":username,
-            "password":password,
+            "password":password
 
           };
 
           var loginDataJson = JSON.stringify(loginData);
           $.ajax({
             type: "POST",
-            url: "",
+            url: "/525station/login/loginCheck.php",
             contentType: "application/json; charset=utf-8",
             data: loginDataJson,
             dataType: "json",
-            success: function(message) {
+            success: function(data) {
 
-                      isSuccess = true;
+                     
                       window.location.assign("");
             },
-            error: function(message) {
+            error: function(data) {
                alert("登陆信息上传错误");
               isSuccess = false;
             }
           });
 
-
-        }
 
 
       }
