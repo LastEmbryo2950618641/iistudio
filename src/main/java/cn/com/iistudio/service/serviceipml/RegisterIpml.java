@@ -38,6 +38,7 @@ public class RegisterIpml implements RegisterInter{
 		if(!storePath.equals(""))
 		{
 		user.setHeadImage(storePath);
+		registerMapper.writeTouristAccount(user);
 		registerMapper.writeTourist(user);
 		return true;
 		}

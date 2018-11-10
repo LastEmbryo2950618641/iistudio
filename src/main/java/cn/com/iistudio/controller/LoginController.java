@@ -7,23 +7,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-<<<<<<< HEAD
 import cn.com.iistudio.entity.Code;
 
 
 import cn.com.iistudio.entity.User;
 
 import cn.com.iistudio.entity.VlaUser;
-import cn.com.iistudio.service.serviceinter.CheckInter;
 import cn.com.iistudio.service.serviceinter.LoginServiceInter;
 
 
-/**
- * @ClassName:LoginController
- * @Description:���ڵ�¼��������
- * @author:chengxiang
- * @date:2018��11��9��
- * @version 1.0
+
 /**
  * @ClassName:LoginController
  * @Description:Controller��������¼����
@@ -36,7 +29,6 @@ import cn.com.iistudio.service.serviceinter.LoginServiceInter;
 @RequestMapping("/login")
 public class LoginController {
 
-=======
 
     /**
      * @Title: /login/loginAccount.asp
@@ -45,7 +37,8 @@ public class LoginController {
      * @return:ModelAndView
      * @throws
      */
-
+        @Autowired
+	    LoginServiceInter loginServiceInter;
 
 		@RequestMapping("loginAccount.asp")
 		public ModelAndView toRegisterPage()
@@ -66,7 +59,7 @@ public class LoginController {
 		@RequestMapping("login.code")
 		@ResponseBody
 		public boolean toCheck(@RequestBody Code code) {
-			System.out.println(code.getSecuritycode());
+			System.out.println("CODE:"+code.getSecuritycode());
 
 			if("8888".equals(code.getSecuritycode()))
 			{

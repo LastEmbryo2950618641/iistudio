@@ -19,6 +19,7 @@ function submit() {
         var codeJson = {
           "securitycode": code
         };
+        alert(code);
         var strJson = JSON.stringify(codeJson);
         $.ajax ({
           type: "POST",
@@ -28,10 +29,10 @@ function submit() {
           dataType: "json",
           success: function(message) {
 
-                    isSuccess = true;
+                   alert(message);
           },
           error: function(message) {
-                alert("验证码错误");
+                alert(message+"验证码错误");
                 isSuccess = false;
           }
         });

@@ -10,5 +10,6 @@ import cn.com.iistudio.entity.User;
 public interface RegisterMapper {
 	
 	public void writeTourist(User user);
+	public void writeTouristAccount(User user);
 
 }
