@@ -2,28 +2,26 @@ package cn.com.iistudio.entity;
 
 public class VideoResources extends Resource {
 
-	private int Id;
-	
-	private String Video;
-	private String DownloadUrl;
+	private int id;
+	private String video;
+	private String downloadUrl;
 	public int getId() {
-		return Id;
+		return id;
 	}
 	public void setId(int id) {
-		Id = id;
+		this.id = id;
 	}
-	
 	public String getVideo() {
-		return Video;
+		return video;
 	}
 	public void setVideo(String video) {
-		Video = video;
+		this.video = video;
 	}
 	public String getDownloadUrl() {
-		return DownloadUrl;
+		return downloadUrl;
 	}
 	public void setDownloadUrl(String downloadUrl) {
-		DownloadUrl = downloadUrl;
+		this.downloadUrl = downloadUrl;
 	}
 
 

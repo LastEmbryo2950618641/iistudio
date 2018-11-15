@@ -3,7 +3,7 @@ package cn.com.iistudio.entity;
 import java.sql.Timestamp;
 
 public class Resource {
-	
+
 	private int id;
 	private String username;
 	private Timestamp Pubdata;
@@ -29,30 +29,43 @@ public class Resource {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getUsername() {
-		return username;
+	public String getAuthor() {
+		return author;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	public void setAuthor(String author) {
+		this.author = author;
 	}
 	public Timestamp getPubdata() {
-		return Pubdata;
+		return pubdata;
 	}
 	public void setPubdata(Timestamp pubdata) {
-		Pubdata = pubdata;
+		this.pubdata = pubdata;
 	}
 	public String getTitle() {
-		return Title;
+		return title;
 	}
 	public void setTitle(String title) {
-		Title = title;
+		this.title = title;
 	}
 	public String getDescription() {
-		return Description;
+		return description;
 	}
 	public void setDescription(String description) {
-		Description = description;
+		this.description = description;
 	}
-    
-  
+	public String getTypeByContent() {
+		return typeByContent;
+	}
+	public void setTypeByContent(String typeByContent) {
+		this.typeByContent = typeByContent;
+	}
+	public String getTypeByFormat() {
+		return typeByFormat;
+	}
+	public void setTypeByFormat(String typeByFormat) {
+		this.typeByFormat = typeByFormat;
+	}
+
+
+
 }
