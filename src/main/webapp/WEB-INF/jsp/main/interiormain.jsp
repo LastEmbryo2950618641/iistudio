@@ -281,14 +281,16 @@
                       <div class="layui-tab-item layui-show">
                         <resource>
                         
+                          
                           <a href="#">
-                            <item><i class="layui-icon layui-icon-file-b"></i>什么是人工智能?
-                             <resourcesketch>人工智能是一种算法，人工智能是一种算法，人工智能是一种算法。</resourcesketch>
-                             <resourcetime>2018.1.1</resourcetime>
-                              <resourceauthor>xxx</resourceauthor>
+                            <item>
+                              <i class="layui-icon layui-icon-file-b"></i>11111
+                             <resourcesketch>2222</resourcesketch>
+                             <resourcetime>555</resourcetime>
+                              <resourceauthor>6666</resourceauthor>
                             </item>
                           </a>
-      
+                       
                         </resource>
                       </div>
                       <div class="layui-tab-item">

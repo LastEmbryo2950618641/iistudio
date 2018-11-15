@@ -1,48 +1,35 @@
 package cn.com.iistudio.entity;
 
 public class ArticleResources extends Resource {
-	private int Id;
-	private String TypeByContent;
-	private String TypeByFormat;
-	private String Image;
-	private String Text;
-	private String Attachment;
+	private int id;
+	
+	private String image;
+	private String text;
+	private String attachment;
 	public int getId() {
-		return Id;
+		return id;
 	}
 	public void setId(int id) {
-		Id = id;
-	}
-	public String getTypeByContent() {
-		return TypeByContent;
-	}
-	public void setTypeByContent(String typeByContent) {
-		TypeByContent = typeByContent;
-	}
-	public String getTypeByFormat() {
-		return TypeByFormat;
-	}
-	public void setTypeByFormat(String typeByFormat) {
-		TypeByFormat = typeByFormat;
+		this.id = id;
 	}
 	public String getImage() {
-		return Image;
+		return image;
 	}
 	public void setImage(String image) {
-		Image = image;
+		this.image = image;
 	}
 	public String getText() {
-		return Text;
+		return text;
 	}
 	public void setText(String text) {
-		Text = text;
+		this.text = text;
 	}
 	public String getAttachment() {
-		return Attachment;
+		return attachment;
 	}
 	public void setAttachment(String attachment) {
-		Attachment = attachment;
+		this.attachment = attachment;
 	}
-
-
+	
+	
 }

@@ -5,11 +5,11 @@
  <!-- 写入注册信息 -->
 <insert id="writeTourist" parameterType="cn.com.iistudio.entity.User">
   
-  INSERT  INTO MembersUser(NickName,UserName,Password,Gender,HeadImage,Email,Tel) VALUES(#{nickName},#{userName},#{password},#{gender},#{headImage},#{email},#{tel});
+  INSERT  INTO MembersUser(nickName,userName,password,gender,headImage,email,tel) VALUES(#{nickName},#{userName},#{password},#{gender},#{headImage},#{email},#{tel});
 </insert>
   
  <insert id="writeTouristAccount" parameterType="cn.com.iistudio.entity.User">
-    INSERT INTO User(UserName,Password) VALUES(#{userName},#{password})
+    INSERT INTO User(userName,password) VALUES(#{userName},#{password})
 </insert>
    
 </mapper>

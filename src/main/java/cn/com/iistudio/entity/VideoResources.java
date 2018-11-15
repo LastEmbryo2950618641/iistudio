@@ -2,41 +2,27 @@ package cn.com.iistudio.entity;
 
 public class VideoResources extends Resource {
 
-	private int Id;
-	private String TypeByContent;
-	private String TypeByFormat;
-	private String Video;
-	private String DownloadUrl;
+	private int id;
+	private String video;
+	private String downloadUrl;
 	public int getId() {
-		return Id;
+		return id;
 	}
 	public void setId(int id) {
-		Id = id;
-	}
-	public String getTypeByContent() {
-		return TypeByContent;
-	}
-	public void setTypeByContent(String typeByContent) {
-		TypeByContent = typeByContent;
-	}
-	public String getTypeByFormat() {
-		return TypeByFormat;
-	}
-	public void setTypeByFormat(String typeByFormat) {
-		TypeByFormat = typeByFormat;
+		this.id = id;
 	}
 	public String getVideo() {
-		return Video;
+		return video;
 	}
 	public void setVideo(String video) {
-		Video = video;
+		this.video = video;
 	}
 	public String getDownloadUrl() {
-		return DownloadUrl;
+		return downloadUrl;
 	}
 	public void setDownloadUrl(String downloadUrl) {
-		DownloadUrl = downloadUrl;
+		this.downloadUrl = downloadUrl;
 	}
-
-
+	
+	
 }

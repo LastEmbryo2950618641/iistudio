@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import cn.com.iistudio.entity.Resource;
 import cn.com.iistudio.entity.StudioNews;
+import cn.com.iistudio.mapper.ResourceMapper;
 import cn.com.iistudio.mapper.StudioNewMapper;
 import cn.com.iistudio.service.serviceinter.MainInter;
 
@@ -16,7 +17,8 @@ public class MainIpml implements MainInter{
 	
 	@Autowired
 	StudioNewMapper studioNewMapper;
-
+    @Autowired
+    ResourceMapper resourceMapper;
 	@Override
 	public List<StudioNews> readDStudioNews(int num) {
 		// TODO Auto-generated method stub
@@ -30,6 +32,30 @@ public class MainIpml implements MainInter{
 	{
 		return null;
 		
+	}
+
+	@Override
+	public List<Resource> readResource(int num, String typeOftype, String type) {
+		// TODO Auto-generated method stub
+		List<Resource> list = null;
+		if(num == 0)
+		{
+			list = resourceMapper.getAllResources();
+		}
+		else if(typeOftype.equalsIgnoreCase("CONTENT"))
+		{
+			String ContentType = type;
+			list = resourceMapper.getResourcesByContent(num, ContentType);
+			
+		}
+		else if(typeOftype.equalsIgnoreCase("FORMAT")) 
+		{
+			String FormatType = type;
+			list = resourceMapper.getResourcesByContent(num, FormatType);
+		}
+		
+		
+		return list;
 	}
 
 }
