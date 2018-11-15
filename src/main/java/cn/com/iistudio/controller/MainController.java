@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import cn.com.iistudio.entity.ICurrentUser;
+import cn.com.iistudio.entity.Resource;
 import cn.com.iistudio.entity.StudioNews;
 import cn.com.iistudio.entity.User;
 import cn.com.iistudio.service.serviceinter.MainInter;
@@ -67,14 +68,19 @@ public class MainController {
 		public ModelAndView loginSuccessEnter()
 		{
 			ModelAndView mav = new ModelAndView();
+			//当前用户
 			User user = new User();
-			List<StudioNews> studioNewsList = null;
-		
 			user = currentUser.getUser();
+			//动态信息
+			List<StudioNews> studioNewsList = null;	
+			
 		
 			if(!StringUtils.isEmpty(user))
 			{
+		  
 			studioNewsList = mainInter.readDStudioNews(3);
+			
+		
 			mav.addObject("currentUser", user);
 			mav.addObject("studioNewsList", studioNewsList);
 			mav.setViewName("main/interiormain");

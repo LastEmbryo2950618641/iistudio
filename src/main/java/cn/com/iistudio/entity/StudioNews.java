@@ -9,63 +9,64 @@ package cn.com.iistudio.entity;
  */
 public class StudioNews {
 
-	private int Id;//����Id
-	private String Username;//�ϴ����û���
-	private String Pubdata;//�ϴ�����
-	private String Text;//��������
-	private String Image;//����ͼƬ
-	private String Attachment;//���Ÿ�ҳ
-	private String Title;//��ҳ
-	private String Description;
-	public String getDescription() {
-		return Description;
-	}
-	public void setDescription(String description) {
-		Description = description;
-	}
-  
+	private int id;//����Id
+	private String username;//�ϴ����û���
+	private String pubdata;//�ϴ�����
+	private String text;//��������
+	private String image;//����ͼƬ
+	private String attachment;//���Ÿ�ҳ
+	private String title;//��ҳ
+	private String description;
 	public int getId() {
-		return Id;
+		return id;
 	}
 	public void setId(int id) {
-		Id = id;
+		this.id = id;
 	}
 	public String getUsername() {
-		return Username;
+		return username;
 	}
 	public void setUsername(String username) {
-		Username = username;
+		this.username = username;
 	}
 	public String getPubdata() {
-		return Pubdata;
+		return pubdata;
 	}
 	public void setPubdata(String pubdata) {
-		Pubdata = pubdata;
+		this.pubdata = pubdata;
 	}
 	public String getText() {
-		return Text;
+		return text;
 	}
 	public void setText(String text) {
-		Text = text;
+		this.text = text;
 	}
 	public String getImage() {
-		return Image;
+		return image;
 	}
 	public void setImage(String image) {
-		Image = image;
+		this.image = image;
 	}
 	public String getAttachment() {
-		return Attachment;
+		return attachment;
 	}
 	public void setAttachment(String attachment) {
-		Attachment = attachment;
+		this.attachment = attachment;
 	}
 	public String getTitle() {
-		return Title;
+		return title;
 	}
 	public void setTitle(String title) {
-		Title = title;
+		this.title = title;
 	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
+	
 
 
 }
