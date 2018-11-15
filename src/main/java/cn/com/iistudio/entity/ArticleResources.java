@@ -2,8 +2,6 @@ package cn.com.iistudio.entity;
 
 public class ArticleResources extends Resource {
 	private int Id;
-	private String TypeByContent;
-	private String TypeByFormat;
 	private String Image;
 	private String Text;
 	private String Attachment;
@@ -13,18 +11,7 @@ public class ArticleResources extends Resource {
 	public void setId(int id) {
 		Id = id;
 	}
-	public String getTypeByContent() {
-		return TypeByContent;
-	}
-	public void setTypeByContent(String typeByContent) {
-		TypeByContent = typeByContent;
-	}
-	public String getTypeByFormat() {
-		return TypeByFormat;
-	}
-	public void setTypeByFormat(String typeByFormat) {
-		TypeByFormat = typeByFormat;
-	}
+	
 	public String getImage() {
 		return Image;
 	}

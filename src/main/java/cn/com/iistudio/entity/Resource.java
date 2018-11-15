@@ -9,6 +9,20 @@ public class Resource {
 	private Timestamp Pubdata;
     private String Title;
     private String Description;
+    private String TypeByContent;
+	private String TypeByFormat;
+	public String getTypeByContent() {
+		return TypeByContent;
+	}
+	public void setTypeByContent(String typeByContent) {
+		TypeByContent = typeByContent;
+	}
+	public String getTypeByFormat() {
+		return TypeByFormat;
+	}
+	public void setTypeByFormat(String typeByFormat) {
+		TypeByFormat = typeByFormat;
+	}
 	public int getId() {
 		return id;
 	}

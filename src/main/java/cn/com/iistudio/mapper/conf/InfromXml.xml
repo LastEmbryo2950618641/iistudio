@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.iistudio.mapper.InfromMapper">
+<select id="getAllNews" resultType="cn.com.iistudio.entity.StudioNews">
+   select * from Publisher order by Pubdata desc
+</select>
+
+<select id="getUserNews" resultType="cn.com.iistudio.entity.StudioNews" parameterType="String">
+   select *from Publisher where UserName=#{UserName} order by Pubdata desc
+</select>
+
+<select id="getOneNew" resultType="cn.com.iistudio.entity.StudioNews" parameterType="int">
+   select *from Publisher where Id=#{Id}
+</select>
+
+<select id="getNumber" resultType="cn.com.iistudio.entity.StudioNews" parameterType="int">
+   SELECT * FROM (SELECT * FROM Publisher ORDER BY Publisher.Pubdata) as t LIMIT 0,#{number}
+</select>
+
+<insert id="insertNew" parameterType="cn.com.iistudio.entity.StudioNews">
+   insert into Publisher values(#{Id},#{Username},#{Pubdata},#{Text},#{Image},#{Attachment},#{Titles})
+</insert>
+</mapper>
