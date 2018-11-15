@@ -1,7 +1,7 @@
 package cn.com.iistudio.entity;
 
-public class VideoResources {
-   
+public class VideoResources extends Resource {
+
 	private int Id;
 	private String TypeByContent;
 	private String TypeByFormat;
@@ -37,6 +37,6 @@ public class VideoResources {
 	public void setDownloadUrl(String downloadUrl) {
 		DownloadUrl = downloadUrl;
 	}
-	
-	
+
+
 }

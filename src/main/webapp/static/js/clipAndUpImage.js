@@ -4,7 +4,7 @@ var imagebase64;
 function clip() {
 
   var upImage = function(c) {
-	 
+
     image = {
       "x": ""+c.x,
       "y": ""+c.y,
@@ -102,8 +102,8 @@ function submit() {
     "emailR": /^[0-9a-zA-Z]*@[0-9a-zA-Z]*[.]com$/,
   };
   var nickname, username, password, gender, tell, email, code,invicode;
- 
- 
+
+
   nickname = $("input[name = 'nickname']").val();
   if (nickname) {
     username = $("input[name='username']").val();
@@ -120,14 +120,14 @@ function submit() {
             if (email.length <= 320) {
               if (res.emailR.test(email)) {
                 code = $("input[name='securitycode']").val();
-                
-               
-                
+
+
+
                 var codeJson = {
                   "securityCode": code
                 };
                 var strJson = JSON.stringify(codeJson);
-                
+
                 $.ajax ({
                   type: "POST",
                   url: "/525station/resgiter/Verification",
@@ -135,7 +135,7 @@ function submit() {
                   data: strJson,
                   dataType: "json",
                   success: function(data) {
-                	 
+
                 	////////////////////////////////////////////////////
                                       if(data){
                                     	  invicode = $("input[name = 'Invitecode']").val();
@@ -150,10 +150,10 @@ function submit() {
                                               data: InvitationCode,
                                               dataType: "json",
                                               success: function(data) {
-                                            	  
-                                            	  
-                                            	  
-                                              
+
+
+
+
                                         	  ///////////////////////
                                         	  if(data)
                                	    	   {
@@ -174,9 +174,9 @@ function submit() {
                                                     data: registerDataJson,
                                                     dataType: "json",
                                                     success: function(message) {
-                                                    	
-                                                    	
-                                                    	
+
+
+
                                                     	alert(data);
                                                  	   if(data)
                                                  		   {
@@ -189,16 +189,16 @@ function submit() {
                                                        data: imageJson,
                                                        dataType: "json",
                                                        success: function(data) {
-                                                    	   
-                                                    	   
-                                                    	   
-                                                    	   
-                                                    	   
+
+
+
+
+
                                                     	   window.location.assign("/525station/resgiter/loginAccount.asp");
                                                        },
-                                                       
-                                                       
-                                                       
+
+
+
                                                        error: function(data) {
                                                            alert("图片上传错误");
                                                           isSuccess = false;
@@ -209,14 +209,14 @@ function submit() {
                                                 	   {
                                                 	   alert("数据存储失败");
                                                 	   }
-                    	   
-                                                    	   
-                                                    	
+
+
+
                                                     },
-                                                    
-                                                    
-                                                    
-                                                    
+
+
+
+
                                                     error: function(message) {
                                                        alert("注册信息上传错误");
                                                        isSuccess = false;
@@ -225,43 +225,43 @@ function submit() {
                                                   }
                                         	  else{alert("邀请码上传错误");}
                                               },
-                                              
-                                              
-                                              
+
+
+
                                               error:function(data){
                                             	  alert("邀请码上传失败");
-                                      	        
+
                                                      }
                                     	       });
                                       }
-                                      
-                                      
+
+
 				                               	       else
 				                               	    	   {
 				                               	    	   alert("数据存储失败");
 				                               	    	   }
-				                                        	  
-                                        	  
+
+
                                     ////////////////////////////
-                                        	  
-                                        
-                                   
+
+
+
             /////////////////////////////////////////////////////////////
-                        },  
-                        
-                        
-                        
+                        },
+
+
+
                   error:function(data){
-                	 
+
                 	  alert("验证码上传失败");
          	         console.log("ajax错误类型："+type);
          	         console.log(err);
          	      }
 
                 });
-                          
-    
-               
+
+
+
               } else {
                 {
                   alert("邮件必须按照格式:xxx@xxx.com");
@@ -297,3 +297,11 @@ function submit() {
 function tip() {
   alert("选择图片并剪切后，请双击上传.");
 }
+
+$(".gender label").click(function(){
+
+	$(".gender label").css({"background-color":"rgba(255,255,255,1)"});
+	$(this).css({"background-color":"rgba(200,200,200,1)"});
+
+
+});

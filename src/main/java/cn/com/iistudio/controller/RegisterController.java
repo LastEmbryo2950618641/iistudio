@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import cn.com.iistudio.entity.Code;
 import cn.com.iistudio.entity.InvitationCode;
 import cn.com.iistudio.entity.SecurityCode;
 import cn.com.iistudio.entity.UpImage;
@@ -18,8 +17,8 @@ import cn.com.iistudio.service.serviceinter.RegisterInter;
 
 /**
  * @ClassName:RegisterController
- * @Description:Controller£¬´¦Àí×¢²á²Ù×÷
- * @author:ÁõÆæ
+ * @Description:Controllerï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ * @author:ï¿½ï¿½ï¿½ï¿½
  * @date:2018.11.8
  * @version:1.0
  *
@@ -28,16 +27,16 @@ import cn.com.iistudio.service.serviceinter.RegisterInter;
 @Controller
 @RequestMapping("/resgiter")
 public class RegisterController {
-	
+
 	@Autowired
 	User user;
 	@Autowired
 	RegisterInter registerIpml;
-	
+
 
 	/**
      * @Title:/resgiter/doResgiter
-     * @Description:À¹½Øµ½."/resgiter/doResgiter"µÄurl£¬Ö´ÐÐ´ËÓ³ÉäÏÂµÄ·½·¨
+     * @Description:ï¿½ï¿½ï¿½Øµï¿½."/resgiter/doResgiter"ï¿½ï¿½urlï¿½ï¿½Ö´ï¿½Ð´ï¿½Ó³ï¿½ï¿½ï¿½ÂµÄ·ï¿½ï¿½ï¿½
      * @param:upUser
      * @return:boolean
      * @throws
@@ -45,23 +44,23 @@ public class RegisterController {
 	@ResponseBody
 	@RequestMapping("doResgiter")
 	public boolean registerAccount(@RequestBody UpUser upUser) {
-		
+
 		System.out.println("test:password:"+user.getPassword()+"\n");
-		
+
 		if(registerIpml.doRegisterAccounct(upUser))
 		  {
 			return true;
-		  
+
 		  }
 		else {
 			return false;
 		}
-		
+
 	}
-	
+
 	/**
      * @Title:/resgiter/upImage
-     * @Description:À¹½Øµ½."/resgiter/upImage"µÄurl£¬Ö´ÐÐ´ËÓ³ÉäÏÂµÄ·½·¨,µ÷ÓÃsevice·½·¨´¦ÀíÍ¼Æ¬
+     * @Description:ï¿½ï¿½ï¿½Øµï¿½."/resgiter/upImage"ï¿½ï¿½urlï¿½ï¿½Ö´ï¿½Ð´ï¿½Ó³ï¿½ï¿½ï¿½ÂµÄ·ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½seviceï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼Æ¬
      * @param:upImage
      * @return:boolean
      * @throws
@@ -69,7 +68,7 @@ public class RegisterController {
 	    @ResponseBody
 		@RequestMapping("upImage")
 		public boolean registerAccount(@RequestBody UpImage upImage) {
-			  
+
 			 if(registerIpml.doRegisterUpImage(upImage))
 			 {
 				 return true;
@@ -78,12 +77,12 @@ public class RegisterController {
 			 {
 				 return false;
 			 }
-			
-			
+
+
 		}
 	    /**
 	     * @Title:/resgiter/doResgiter
-	     * @Description:À¹½Øµ½."/resgiter/Invitation"µÄurl£¬Ö´ÐÐ´ËÓ³ÉäÏÂµÄ·½·¨
+	     * @Description:ï¿½ï¿½ï¿½Øµï¿½."/resgiter/Invitation"ï¿½ï¿½urlï¿½ï¿½Ö´ï¿½Ð´ï¿½Ó³ï¿½ï¿½ï¿½ÂµÄ·ï¿½ï¿½ï¿½
 	     * @param:Invitation
 	     * @return:boolean
 	     * @throws
@@ -96,12 +95,12 @@ public class RegisterController {
 	    		return true;
 	    	}else {
 				return false;
-	 			  
-	    	}	
+
+	    	}
 	 		}
 	        /**
 	         * @Title:/resgiter/doResgiter
-	         * @Description:À¹½Øµ½."/resgiter/Verification"µÄurl£¬Ö´ÐÐ´ËÓ³ÉäÏÂµÄ·½·¨
+	         * @Description:ï¿½ï¿½ï¿½Øµï¿½."/resgiter/Verification"ï¿½ï¿½urlï¿½ï¿½Ö´ï¿½Ð´ï¿½Ó³ï¿½ï¿½ï¿½ÂµÄ·ï¿½ï¿½ï¿½
 	         * @param:Verification
 	         * @return:boolean
 	         * @throws
@@ -116,13 +115,13 @@ public class RegisterController {
 	    		return true;
 	    	}else {
 				return false;
-	 			  
-	    	}	
+
+	    	}
 	 		}
-	    
+
 		/**
 	     * @Title:/resgiter/Validation
-	     * @Description:À¹½Øµ½."/resgiter/Validation"µÄurl£¬Ö´ÐÐ´ËÓ³ÉäÏÂµÄ·½·¨,µ÷ÓÃsevice·½·¨´¦Àí°²È«Âë
+	     * @Description:ï¿½ï¿½ï¿½Øµï¿½."/resgiter/Validation"ï¿½ï¿½urlï¿½ï¿½Ö´ï¿½Ð´ï¿½Ó³ï¿½ï¿½ï¿½ÂµÄ·ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½seviceï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½
 	     * @param:upImage
 	     * @return:boolean
 	     * @throws
@@ -130,8 +129,8 @@ public class RegisterController {
 	    @ResponseBody
 		@RequestMapping("Validation")
 		public boolean Validation(@RequestBody SecurityCode securityCode) {
-			  
-	    	
+
+
 		if("888888".equals(securityCode.getSecurityCode()))
 		{
 			return true;
@@ -140,35 +139,35 @@ public class RegisterController {
 		{
 			return false;
 		}
-			
+
 		}
-		
-		
-		
-	//Ìø×ªµ½×¢²á½çÃæ
+
+
+
+	//ï¿½ï¿½×ªï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	@RequestMapping("resgiterAccount.asp")
 	public ModelAndView toRegisterPage()
 	{
 		ModelAndView modelAndView =new ModelAndView();
 		modelAndView.setViewName("main/registerpage");
-		
+
 		return modelAndView;
 	}
-	
-	
-    
+
+
+
 	@RequestMapping("upImage.asp")
 	public ModelAndView toRegisterUpHeadImage()
 	{
-		
+
 		System.out.println("test2 username:"+user.getUserName()+"\n");
 		ModelAndView modelAndView =new ModelAndView();
 		modelAndView.setViewName("main/registerpage2");
 		return modelAndView;
 	}
-	
+
 	/**
-	 * @Description:Controller£¬Ìø×ªµ½µÇÂ¼½çÃæ
+	 * @Description:Controllerï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½
 	 * @return
 	 */
 		@RequestMapping("loginAccount.asp")
@@ -176,8 +175,8 @@ public class RegisterController {
 		{
 			ModelAndView modelAndView =new ModelAndView();
 			modelAndView.setViewName("main/loginpage");
-			
+
 			return modelAndView;
 		}
-		
+
 }

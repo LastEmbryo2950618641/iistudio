@@ -14,7 +14,7 @@
 </select>
 
 <select id="getNumber" resultType="cn.com.iistudio.entity.StudioNews" parameterType="int">
-   SELECT * FROM (SELECT * FROM StudioNews ORDER BY StudioNews.Pubdata) as t LIMIT 0,#{number} 
+   SELECT * FROM (SELECT * FROM StudioNews ORDER BY StudioNews.Pubdata) as t LIMIT 0,#{number}
 </select>
 
 <insert id="insertNew" parameterType="cn.com.iistudio.entity.StudioNews">

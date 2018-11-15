@@ -1,6 +1,6 @@
 package cn.com.iistudio.entity;
 
-public class ArticleResources {
+public class ArticleResources extends Resource {
 	private int Id;
 	private String TypeByContent;
 	private String TypeByFormat;
@@ -43,6 +43,6 @@ public class ArticleResources {
 	public void setAttachment(String attachment) {
 		Attachment = attachment;
 	}
-	
+
 
 }

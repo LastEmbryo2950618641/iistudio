@@ -1,21 +1,29 @@
 package cn.com.iistudio.entity;
 /**
  * @ClassName:SecurityCode
- * @Description:ĞÂÎÅÀà
+ * @Description:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  * @author:chengxaing
  * @date:2018.11.12
  * @version:1.0
  *
  */
 public class StudioNews {
-    
-	private int Id;//ĞÂÎÅId
-	private String Username;//ÉÏ´«ÈËÓÃ»§Ãû
-	private String Pubdata;//ÉÏ´«ÈÕÆÚ
-	private String Text;//ĞÂÎÅÄÚÈİ
-	private String Image;//ĞÂÎÅÍ¼Æ¬
-	private String Attachment;//ĞÂÎÅ¸½Ò³
-	private String Title;//Ö÷Ò³
+
+	private int Id;//ï¿½ï¿½ï¿½ï¿½Id
+	private String Username;//ï¿½Ï´ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½
+	private String Pubdata;//ï¿½Ï´ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String Text;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String Image;//ï¿½ï¿½ï¿½ï¿½Í¼Æ¬
+	private String Attachment;//ï¿½ï¿½ï¿½Å¸ï¿½Ò³
+	private String Title;//ï¿½ï¿½Ò³
+	private String Description;
+	public String getDescription() {
+		return Description;
+	}
+	public void setDescription(String description) {
+		Description = description;
+	}
+  
 	public int getId() {
 		return Id;
 	}
@@ -58,6 +66,6 @@ public class StudioNews {
 	public void setTitle(String title) {
 		Title = title;
 	}
-	
-	
+
+
 }
