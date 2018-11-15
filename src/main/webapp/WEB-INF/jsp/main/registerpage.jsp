@@ -84,6 +84,7 @@
           <div class="row"><div>tell:</div><input  maxlength="11" name="tell" type="text" placeholder="your tell"></div>
           <div class="row"><div>email:</div><input name="email" type="text" placeholder="your email"></div>
           <div class="row securitycode"><div><div>security code:</div><input  maxlength="6" name="securitycode" type="text" placeholder="your tel security code or email security code"><a href="">send code</a></div></div>
+          <div class="row securitycode"><div><div>Invite code:</div><input  maxlength="6" name="Invitecode" type="text" placeholder="Please input Your invitation code"><a href="">send code</a></div></div>
           <div class="row submit"><a href="javascript:void(0);" onclick="submit()" >submit</a></div>
 
         </div>

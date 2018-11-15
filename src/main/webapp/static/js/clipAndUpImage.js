@@ -101,8 +101,9 @@ function submit() {
     "tellR": /^[0-9]{11}$/,
     "emailR": /^[0-9a-zA-Z]*@[0-9a-zA-Z]*[.]com$/,
   };
-  var nickname, username, password, gender, tell, email, code;
-
+  var nickname, username, password, gender, tell, email, code,invicode;
+ 
+ 
   nickname = $("input[name = 'nickname']").val();
   if (nickname) {
     username = $("input[name='username']").val();
@@ -129,13 +130,30 @@ function submit() {
                 
                 $.ajax ({
                   type: "POST",
-                  url: "/525station/resgiter/Validation",
+                  url: "/525station/resgiter/Verification",
                   contentType: "application/json; charset=utf-8",
                   data: strJson,
                   dataType: "json",
                   success: function(data) {
+                	 
                 	////////////////////////////////////////////////////
-                                    
+                                      if(data){
+                                    	  invicode = $("input[name = 'Invitecode']").val();
+                                    	  var datacheck={
+                                    	    "invitationCode":invicode
+                                    	  };
+                                    	  var InvitationCode=JSON.stringify(datacheck);
+                                    	  $.ajax({
+                                              type: "POST",
+                                              url: "/525station/resgiter/Invitation",
+                                              contentType: "application/json; charset=utf-8",
+                                              data: InvitationCode,
+                                              dataType: "json",
+                                              success: function(data) {
+                                            	  
+                                            	  
+                                            	  
+                                              
                                         	  ///////////////////////
                                         	  if(data)
                                	    	   {
@@ -156,6 +174,9 @@ function submit() {
                                                     data: registerDataJson,
                                                     dataType: "json",
                                                     success: function(message) {
+                                                    	
+                                                    	
+                                                    	
                                                     	alert(data);
                                                  	   if(data)
                                                  		   {
@@ -170,8 +191,14 @@ function submit() {
                                                        success: function(data) {
                                                     	   
                                                     	   
+                                                    	   
+                                                    	   
+                                                    	   
                                                     	   window.location.assign("/525station/resgiter/loginAccount.asp");
                                                        },
+                                                       
+                                                       
+                                                       
                                                        error: function(data) {
                                                            alert("图片上传错误");
                                                           isSuccess = false;
@@ -186,13 +213,29 @@ function submit() {
                                                     	   
                                                     	
                                                     },
+                                                    
+                                                    
+                                                    
+                                                    
                                                     error: function(message) {
                                                        alert("注册信息上传错误");
                                                        isSuccess = false;
                                                     }
                                                   });
                                                   }
- 
+                                        	  else{alert("邀请码上传错误");}
+                                              },
+                                              
+                                              
+                                              
+                                              error:function(data){
+                                            	  alert("邀请码上传失败");
+                                      	        
+                                                     }
+                                    	       });
+                                      }
+                                      
+                                      
 				                               	       else
 				                               	    	   {
 				                               	    	   alert("数据存储失败");
@@ -204,7 +247,10 @@ function submit() {
                                         
                                    
             /////////////////////////////////////////////////////////////
-                        },    
+                        },  
+                        
+                        
+                        
                   error:function(data){
                 	 
                 	  alert("验证码上传失败");
@@ -213,8 +259,8 @@ function submit() {
          	      }
 
                 });
-                
-                
+                          
+    
                
               } else {
                 {

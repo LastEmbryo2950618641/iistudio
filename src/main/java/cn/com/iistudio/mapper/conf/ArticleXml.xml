@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.iistudio.mapper.ArticleMapper">
+<select id="getAll" resultType="cn.com.iistudio.entity.ArticleResources">
+   select * from ArticleResources order by Pubdata desc
+</select>
+
+<select id="getUserArticle" resultType="cn.com.iistudio.entity.ArticleResources" parameterType="String">
+   select *from ArticleResources where UserName=#{UserName} order by Pubdata desc
+</select>
+
+<select id="getId" resultType="cn.com.iistudio.entity.ArticleResources" parameterType="int">
+   select *from ArticleResources where Id=#{Id}
+</select>
+
+<select id="getnumber" resultType="cn.com.iistudio.entity.ArticleResources" parameterType="int">
+   SELECT * FROM (SELECT * FROM ArticleResources ORDER BY ArticleResources.Pubdata) as t LIMIT 0,#{number} 
+</select>
+</mapper>

@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import cn.com.iistudio.entity.Code;
+import cn.com.iistudio.entity.InvitationCode;
 import cn.com.iistudio.entity.SecurityCode;
 import cn.com.iistudio.entity.UpImage;
 import cn.com.iistudio.entity.UpUser;
@@ -79,7 +81,44 @@ public class RegisterController {
 			
 			
 		}
-	
+	    /**
+	     * @Title:/resgiter/doResgiter
+	     * @Description:拦截到."/resgiter/Invitation"的url，执行此映射下的方法
+	     * @param:Invitation
+	     * @return:boolean
+	     * @throws
+	     */
+	        @ResponseBody
+	 		@RequestMapping("Invitation")
+	 		public boolean  invitation(@RequestBody InvitationCode code) {
+	        	System.out.println(code.getInvitationCode());
+	        	if(code.getInvitationCode().equals("888888")) {
+	    		return true;
+	    	}else {
+				return false;
+	 			  
+	    	}	
+	 		}
+	        /**
+	         * @Title:/resgiter/doResgiter
+	         * @Description:拦截到."/resgiter/Verification"的url，执行此映射下的方法
+	         * @param:Verification
+	         * @return:boolean
+	         * @throws
+	         */
+	        @ResponseBody
+	 		@RequestMapping("Verification")
+	 		public boolean  Verification(@RequestBody SecurityCode code) {
+	        	System.out.println(code.getSecurityCode());
+	        	System.out.println("you are 666");
+	    	if(code.getSecurityCode().equals("888888")) {
+	    		System.out.println("you are 666");
+	    		return true;
+	    	}else {
+				return false;
+	 			  
+	    	}	
+	 		}
 	    
 		/**
 	     * @Title:/resgiter/Validation
