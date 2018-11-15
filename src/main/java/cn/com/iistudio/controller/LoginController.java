@@ -8,15 +8,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import cn.com.iistudio.entity.Code;
-
-
+import cn.com.iistudio.entity.ICurrentUser;
 import cn.com.iistudio.entity.User;
 
 import cn.com.iistudio.entity.VlaUser;
 import cn.com.iistudio.service.serviceinter.LoginServiceInter;
 
 
-
+		
 /**
  * @ClassName:LoginController
  * @Description:Controllerï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½
@@ -39,6 +38,10 @@ public class LoginController {
      */
         @Autowired
 	    LoginServiceInter loginServiceInter;
+            //µ±Ç°ÓÃ»§
+        @Autowired
+      	ICurrentUser currentUser;
+
 
 		@RequestMapping("loginAccount.asp")
 		public ModelAndView toRegisterPage()
@@ -84,12 +87,10 @@ public class LoginController {
 		public boolean tocheckPage(@RequestBody VlaUser vlaUser  ) {
 			String UserName=vlaUser.getUsername();
 			String password=vlaUser.getPassword();
-			User user=new User();
+			User user = new User();
 			if(loginServiceInter.getlLogin(UserName, password)==true) {
-				    user=loginServiceInter.getUserinformation(UserName);
-				    System.out.println(user.getEmail());
-				    System.out.println(user.getGender());
-				    System.out.println(user.getIntroduce());
+				user=loginServiceInter.getUserinformation(UserName);
+				currentUser.setUser(user);
 					return true;
 
 			}else {
@@ -99,5 +100,6 @@ public class LoginController {
 			}
 
 		}
+		
 
 }

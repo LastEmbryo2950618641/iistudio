@@ -1,0 +1,168 @@
+.ii-nav {
+   position: absolute;
+   left:200px;
+   top: 0;
+}
+.logo img {
+  padding-top: 10px;
+}
+.main-row {
+  position:fixed;
+  height: 100%;
+  top:100px;
+  left: 200px;
+  width: 85%;
+  overflow:auto;
+}
+
+#carouselMain {
+
+  margin: 0 auto;
+  height: 30rem;
+  width: 80%;
+}
+#carouselInform {
+  height: 200px;
+  width:300px;
+
+}
+.inform {
+  border-radius: 4px;
+}
+.inform p {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 4px;
+  opacity: 0;
+  position: relative;
+  bottom:40px;
+}
+.inform-co {
+  padding: 4px 20px;
+  height: 420px;
+}
+.inform .simple {
+  color: white;
+  padding: 4px 8px;
+}
+.inform-co a:hover >.inform .simple
+{
+  opacity: 0;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.inform-co a:hover >.inform p{
+  bottom:0px;
+  opacity: 1;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.important-inform {
+  height: 100%;
+
+}
+
+.item {
+  padding: 0 50px;
+}
+#dy a{
+  color: rgba(0, 0, 0, 1);
+}
+#dy  a:hover {
+  text-decoration: none;
+  color:rgba(100, 100, 100, 1);
+}
+datatime {
+  color: rgba(220,184,0,1);
+}
+datatime::after {
+  content: "    ";
+}
+resourcetime {
+  display: inline-block;
+  float: right;
+}
+resourceauthor {
+  display: inline-block;
+  float: right;
+  padding-right: 30px;
+}
+.resources {
+  height: 500px;
+}
+.inform a:hover{
+ color: rgba(100, 100, 100, 1);
+}
+resource item {
+  display: block;
+}
+.layui-icon {
+  padding-right: 5px;
+}
+.layui-icon-fire {
+  color: red;
+}
+.layui-icon-file-b {
+  color:green;
+}
+.layui-icon-video {
+  color: rgba(255,123,193,1);
+}
+.layui-icon-app {
+  color: rgba(90, 120, 255, 1);
+}
+.layui-footer {
+  z-index:1000;
+}
+.Sdy-contant {
+  height: 300px;
+}
+.layui-card {
+  border: 1px solid rgba(200, 200, 200, 0.5);
+}
+Sdyimage img {
+  height: 100%;
+}
+Sdycontant {
+  display: block;
+  height: 100px;
+}
+Sdyimage {
+  display: block;
+  height: 150px;
+  width: 100%;
+  background-color: rgba(200,200,200,1);
+}
+Sdyimage img {
+	width: 100%;
+}
+.layui-tab {
+  margin-top: 0px;
+}
+inform {
+  display: block;
+  padding: 4px 0px;
+  padding-right: 50px;
+}
+
+inform::after,
+inform::before {
+  content: "";
+  display: block;
+  clear: both;
+}
+inform informtime {
+  display: inline-block;
+  color:rgba(255, 129, 123, 1);
+}
+inform informtitle {
+  display: block;
+  padding: 4px 10px;
+}
+inform informauthor {
+  float: right;
+  color: rgba(200, 200, 200, 1);
+}

@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import cn.com.iistudio.entity.Code;
 import cn.com.iistudio.entity.InvitationCode;
 import cn.com.iistudio.entity.SecurityCode;
 import cn.com.iistudio.entity.UpImage;

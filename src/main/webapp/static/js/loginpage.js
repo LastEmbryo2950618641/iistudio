@@ -11,6 +11,7 @@ function submit() {
     alert(username);
     if (res.usernameR.test(username)) {
       password = $("input[name='password']").val();
+      alert(password);
       if (res.passwordR.test(password)) {
     	  
     	  alert(22);
@@ -19,7 +20,7 @@ function submit() {
         var codeJson = {
           "securitycode": code
         };
-        alert(code);
+        alert(codeJson.code);
         var strJson = JSON.stringify(codeJson);
         $.ajax ({
           type: "POST",
@@ -28,8 +29,33 @@ function submit() {
           data: strJson,
           dataType: "json",
           success: function(message) {
+        	  
+              var loginData = {
 
-                   alert(message);
+                "username":username,
+                "password":password
+
+              };
+
+              var loginDataJson = JSON.stringify(loginData);
+              $.ajax({
+                type: "POST",
+                url: "/525station/login/loginCheck.php",
+                contentType: "application/json; charset=utf-8",
+                data: loginDataJson,
+                dataType: "json",
+                success: function(data) {
+                	
+                    window.location.assign("/525station/interiormain.php");
+                },
+                error: function(data) {
+                   alert("登陆信息上传错误");
+                  isSuccess = false;
+                }
+              });
+
+
+              
           },
           error: function(message) {
                 alert(message+"验证码错误");
@@ -39,34 +65,8 @@ function submit() {
 
       
         
-        alert(111);
-          var username, password;
-          var loginData = {
-
-            "username":username,
-            "password":password
-
-          };
-
-          var loginDataJson = JSON.stringify(loginData);
-          $.ajax({
-            type: "POST",
-            url: "/525station/login/loginCheck.php",
-            contentType: "application/json; charset=utf-8",
-            data: loginDataJson,
-            dataType: "json",
-            success: function(data) {
-
-                     
-                      window.location.assign("");
-            },
-            error: function(data) {
-               alert("登陆信息上传错误");
-              isSuccess = false;
-            }
-          });
-
-
+      
+         
 
       }
       else {

@@ -191,9 +191,6 @@ function submit() {
                                                        success: function(data) {
                                                     	   
                                                     	   
-                                                    	   
-                                                    	   
-                                                    	   
                                                     	   window.location.assign("/525station/resgiter/loginAccount.asp");
                                                        },
                                                        
@@ -297,3 +294,11 @@ function submit() {
 function tip() {
   alert("选择图片并剪切后，请双击上传.");
 }
+
+$(".gender label").click(function(){
+
+	$(".gender label").css({"background-color":"rgba(255,255,255,1)"});
+	$(this).css({"background-color":"rgba(200,200,200,1)"});
+	
+	      
+});

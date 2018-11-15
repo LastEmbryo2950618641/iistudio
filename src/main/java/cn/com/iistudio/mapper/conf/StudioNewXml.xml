@@ -10,10 +10,10 @@
 </select>
 
 <select id="getOneNew" resultType="cn.com.iistudio.entity.StudioNews" parameterType="int">
-   select *from StudioNews where Id=#{Id}
+   select *from StudioNews where id=#{id}
 </select>
 
 <select id="getNumber" resultType="cn.com.iistudio.entity.StudioNews" parameterType="int">
-   select *from StudioNews where Id=#{Id}
+   select * from (select * from StudioNews as sn order by sn.Pubdata asc) as ssn limit 0,#{num};
 </select>
 </mapper>

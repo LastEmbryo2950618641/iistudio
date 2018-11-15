@@ -80,7 +80,8 @@
           <div class="row"><div>nickname:</div><input maxlength="100" name="nickname" type="text" placeholder="your nickname"></div>
           <div class="row"><div>username:</div><input maxlength="19" name="username" type="text" placeholder="your username"></div>
           <div class="row"><div>password:</div><input maxlength="20"name="password" type="text" placeholder="your password"></div>
-          <div class="row"><div>gender:</div><input type="radio" name="gender" value="male" >男 <input type="radio" name="gender" value="female" >女<input type="radio" name="gender" value="secret" >保密</div>
+          <div class="row "><div>gender:</div><div class="gender"><input type="radio" name="gender" id="male" value="male" ><label  for="male">男</label><input type="radio" name="gender" value="female" ><label for="female">女</label><input type="radio" name="gender" value="secret" ><label for="secret">保密</label></div></div>
+          
           <div class="row"><div>tell:</div><input  maxlength="11" name="tell" type="text" placeholder="your tell"></div>
           <div class="row"><div>email:</div><input name="email" type="text" placeholder="your email"></div>
           <div class="row securitycode"><div><div>security code:</div><input  maxlength="6" name="securitycode" type="text" placeholder="your tel security code or email security code"><a href="">send code</a></div></div>

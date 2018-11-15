@@ -16,6 +16,13 @@ public class StudioNews {
 	private String Image;//新闻图片
 	private String Attachment;//新闻附页
 	private String Title;//主页
+	private String Description;
+	public String getDescription() {
+		return Description;
+	}
+	public void setDescription(String description) {
+		Description = description;
+	}
 	public int getId() {
 		return Id;
 	}

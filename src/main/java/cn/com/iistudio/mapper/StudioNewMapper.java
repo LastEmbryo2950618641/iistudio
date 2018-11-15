@@ -11,5 +11,5 @@ public interface StudioNewMapper {
    
    public StudioNews getOneNew(int Id);
    
-   public List<StudioNews> getNumber(int number1,int number2);
+   public List<StudioNews> getNumber(int num);
 }

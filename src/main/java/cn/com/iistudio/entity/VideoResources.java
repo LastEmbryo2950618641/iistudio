@@ -1,6 +1,6 @@
 package cn.com.iistudio.entity;
 
-public class VideoResources {
+public class VideoResources extends Resource {
    
 	private int Id;
 	private String TypeByContent;

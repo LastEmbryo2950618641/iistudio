@@ -1,7 +1,9 @@
 package cn.com.iistudio.entity;
 
 import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.WebApplicationContext;
 
 /**
  * @ClassName:User
@@ -13,7 +15,6 @@ import org.springframework.stereotype.Component;
  */
 
 @Component
-@Scope("session")
 public class User {
 	
 	private String nickName;//Í«≥∆
