@@ -12,14 +12,18 @@ import cn.com.iistudio.entity.ICurrentUser;
 import cn.com.iistudio.entity.Resource;
 import cn.com.iistudio.entity.StudioNews;
 import cn.com.iistudio.entity.User;
+
 import cn.com.iistudio.service.serviceinter.AdministratorInter;
+
+import cn.com.iistudio.mapper.InfromMapper;
+
 import cn.com.iistudio.service.serviceinter.MainInter;
 
 
 /**
  * @ClassName:DoEnterToMainController
- * @Description:Controller£¬À¹½Øµ½´ïÖ÷½çÃæµÄurl
- * @author:ÁõÆæ
+ * @Description:Controllerï¿½ï¿½ï¿½ï¿½ï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½url
+ * @author:ï¿½ï¿½ï¿½ï¿½
  * @date:2018.11.8
  * @version:1.0
  *
@@ -27,64 +31,71 @@ import cn.com.iistudio.service.serviceinter.MainInter;
 
 @Controller
 public class MainController {
-	//µ±Ç°ÓÃ»§
+	//ï¿½ï¿½Ç°ï¿½Ã»ï¿½
     @Autowired
   	ICurrentUser currentUser;
     @Autowired
     MainInter mainInter;
+
     @Autowired
     AdministratorInter AdministratorIpml;
-     
+
+    @Autowired
+    InfromMapper infromMapper;
+
+
      /**
       * @Title: /
-      * @Description:À¹½Øµ½."/"µÄurl£¬²¢Ìø×ªµ½/index.jsp
+      * @Description:ï¿½ï¿½ï¿½Øµï¿½."/"ï¿½ï¿½urlï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½/index.jsp
       * @param
       * @return:String
       * @throws
       */
 	 @RequestMapping("/")
 	    public String indexPage(){
-	     
+
 	        return "index";
-	        
+
 	    }
-	 
-	  
+
+
      /**
       * @Title: /main.asp
-      * @Description:À¹½Øµ½.¡°/main.asp¡±µÄurl£¬·¢ËÍµ±Ç°ÓÃ»§ÐÅÏ¢(user)²¢Ìø×ªµ½/main/main.jsp
+      * @Description:ï¿½ï¿½ï¿½Øµï¿½.ï¿½ï¿½/main.aspï¿½ï¿½ï¿½ï¿½urlï¿½ï¿½ï¿½ï¿½ï¿½Íµï¿½Ç°ï¿½Ã»ï¿½ï¿½ï¿½Ï¢(user)ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½/main/main.jsp
       * @param
       * @return:ModelAndView
       * @throws
       */
 	 @RequestMapping("/main.asp")
 	 public ModelAndView indexToMain() {
-		  
+
 		 ModelAndView modelAndView = new ModelAndView();
 		 modelAndView.addObject("user", currentUser.getUser());
 		 modelAndView.setViewName("main/main");
-		 return modelAndView; 
+		 return modelAndView;
 	 }
 
-	 
+
 		@RequestMapping("/interiormain.php")
 		public ModelAndView loginSuccessEnter()
 		{
 			ModelAndView mav = new ModelAndView();
-			//µ±Ç°ÓÃ»§
+			//ï¿½ï¿½Ç°ï¿½Ã»ï¿½
 			User user = new User();
 			user = currentUser.getUser();
-			//¶¯Ì¬ÐÅÏ¢
-			List<StudioNews> studioNewsList = null;	
-			//×ÊÔ´
+			//ï¿½ï¿½Ì¬ï¿½ï¿½Ï¢
+			List<StudioNews> studioNewsList = null;
+			//ï¿½ï¿½Ô´
 			List<Resource> resourcesList = null;
-		
+
 			if(!StringUtils.isEmpty(user))
 			{
-		  
+
 			studioNewsList = mainInter.readDStudioNews(3);
-			resourcesList = mainInter.readResource(4, "CONTENT", "ai");
-		
+
+		  	resourcesList = mainInter.readResource(4, "CONTENT", "ai");
+		    mav.addObject("information", infromMapper.getNumber(4));
+		    mav.addObject("informations", infromMapper.getless(4));
 			mav.addObject("currentUser", user);
 			mav.addObject("studioNewsList", studioNewsList);
 			mav.setViewName("main/interiormain");
@@ -93,11 +104,11 @@ public class MainController {
 			{
 			mav.setViewName("main/loginpage");
 			}
-			
+
 			return mav;
-			
+
 		}
-		
+
 		@RequestMapping("/administrator")
 		public ModelAndView enToAdmini()
 		{
@@ -106,6 +117,6 @@ public class MainController {
 			mav.addObject("membersList", list);
 			mav.setViewName("");
 			return mav;
-			
+
 		}
 }

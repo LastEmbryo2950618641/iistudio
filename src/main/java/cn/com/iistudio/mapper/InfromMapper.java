@@ -14,6 +14,8 @@ public interface InfromMapper {
 	   public StudioNews getOneinformation(int id);
 
 	   public List<StudioNews> getNumber(int number);
+	   
+	   public List<StudioNews> getless(int number);
 
 	   public Boolean information(Infrom infrom);
 

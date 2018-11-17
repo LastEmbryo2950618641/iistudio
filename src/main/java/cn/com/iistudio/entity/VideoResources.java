@@ -23,6 +23,6 @@ public class VideoResources extends Resource {
 	public void setDownloadUrl(String downloadUrl) {
 		this.downloadUrl = downloadUrl;
 	}
-	
-	
+
+
 }

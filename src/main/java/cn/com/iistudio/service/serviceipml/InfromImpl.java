@@ -9,10 +9,9 @@ import cn.com.iistudio.entity.Infrom;
 import cn.com.iistudio.entity.StudioNews;
 import cn.com.iistudio.mapper.InfromMapper;
 import cn.com.iistudio.service.serviceinter.InfromInter;
-
-@Service("infromInter")
+@Service("infromImpl")
 public class InfromImpl implements InfromInter {
-	
+
 	@Autowired
 	InfromMapper infromMapper;
 
@@ -39,8 +38,6 @@ public class InfromImpl implements InfromInter {
 		// TODO Auto-generated method stub
 		return infromMapper.getNumber(number);
 	}
-
-	
 
 	@Override
 	public Boolean information(Infrom infrom) {
