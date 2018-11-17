@@ -6,7 +6,7 @@
 </select>
 
 <select id="getUserNews" resultType="cn.com.iistudio.entity.StudioNews" parameterType="String">
-   select *from StudioNews where userName=#{userName} order by pubdata desc
+   select *from StudioNews where userName=#{username} order by pubdata desc
 </select>
 
 <select id="getOneNew" resultType="cn.com.iistudio.entity.StudioNews" parameterType="int">

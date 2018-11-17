@@ -5,7 +5,7 @@
  <!-- 写入注册信息 -->
 <insert id="writeTourist" parameterType="cn.com.iistudio.entity.User">
   
-  INSERT  INTO MembersUser(nickName,userName,password,gender,headImage,email,tel) VALUES(#{nickName},#{userName},#{password},#{gender},#{headImage},#{email},#{tel});
+  INSERT  INTO MembersUser(nickname,username,password,gender,headImage,email,tel) VALUES(#{nickname},#{username},#{password},#{gender},#{headImage},#{email},#{tel});
 </insert>
   
  <insert id="writeTouristAccount" parameterType="cn.com.iistudio.entity.User">

@@ -12,6 +12,7 @@ import cn.com.iistudio.entity.ICurrentUser;
 import cn.com.iistudio.entity.Resource;
 import cn.com.iistudio.entity.StudioNews;
 import cn.com.iistudio.entity.User;
+import cn.com.iistudio.service.serviceinter.AdministratorInter;
 import cn.com.iistudio.service.serviceinter.MainInter;
 
 
@@ -31,6 +32,8 @@ public class MainController {
   	ICurrentUser currentUser;
     @Autowired
     MainInter mainInter;
+    @Autowired
+    AdministratorInter AdministratorIpml;
      
      /**
       * @Title: /
@@ -73,13 +76,14 @@ public class MainController {
 			user = currentUser.getUser();
 			//动态信息
 			List<StudioNews> studioNewsList = null;	
-			
+			//资源
+			List<Resource> resourcesList = null;
 		
 			if(!StringUtils.isEmpty(user))
 			{
 		  
 			studioNewsList = mainInter.readDStudioNews(3);
-			
+			resourcesList = mainInter.readResource(4, "CONTENT", "ai");
 		
 			mav.addObject("currentUser", user);
 			mav.addObject("studioNewsList", studioNewsList);
@@ -90,6 +94,17 @@ public class MainController {
 			mav.setViewName("main/loginpage");
 			}
 			
+			return mav;
+			
+		}
+		
+		@RequestMapping("/administrator")
+		public ModelAndView enToAdmini()
+		{
+			ModelAndView mav = new ModelAndView();
+			List<User> list = AdministratorIpml.getAllMembers();
+			mav.addObject("membersList", list);
+			mav.setViewName("");
 			return mav;
 			
 		}

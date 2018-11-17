@@ -34,7 +34,7 @@ public class RegisterIpml implements RegisterInter{
 	public boolean doRegisterUpImage(UpImage upImage) {
 		// TODO Auto-generated method stub
 		
-		String storePath = upImage.base64ToWhere(folderPath,user.getUserName());
+		String storePath = upImage.base64ToWhere(folderPath,user.getUsername());
 		if(!storePath.equals(""))
 		{
 		user.setHeadImage(storePath);
@@ -59,8 +59,8 @@ public class RegisterIpml implements RegisterInter{
 		// TODO Auto-generated method stub
 		
 		//¥Ê»Î ˝æ›
-		user.setNickName(upUser.getNickname());
-		user.setUserName(upUser.getUsername());
+		user.setNickname(upUser.getNickname());
+		user.setUsername(upUser.getUsername());
 		user.setPassword(upUser.getPassword());
 		user.setEmail(upUser.getEmail());
 		user.setTel(upUser.getTell());

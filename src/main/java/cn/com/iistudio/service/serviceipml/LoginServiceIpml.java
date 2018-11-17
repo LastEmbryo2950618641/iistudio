@@ -33,9 +33,9 @@ public class LoginServiceIpml implements LoginServiceInter {
 		
 		//对输入的用户名以及密码进行判断
 		for(int i=0;i<testDao.getAll().size();i++) {
-			System.out.println(testDao.getAll().get(i).getUserName());
+			System.out.println(testDao.getAll().get(i).getUsername());
 			System.out.println(testDao.getAll().get(i).getPassword());
-			if(username.equals(testDao.getAll().get(i).getUserName())&&password.equals(testDao.getAll().get(i).getPassword())) {
+			if(username.equals(testDao.getAll().get(i).getUsername())&&password.equals(testDao.getAll().get(i).getPassword())) {
 				return true;
 			}
 		}

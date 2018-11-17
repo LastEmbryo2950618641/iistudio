@@ -29,7 +29,7 @@
             <a href="">个人中心<span class="layui-badge-dot"></span></a>
           </li>
           <li class="layui-nav-item" lay-unselect="">
-            <a href="javascript:;"><img src="${currentUser.headImage}" class="layui-nav-img">${currentUser.getNickName()}</a>
+            <a href="javascript:;"><img src="${currentUser.getHeadImage()}" class="layui-nav-img">${currentUser.getNickname()}</a>
             <dl class="layui-nav-child">
               <dd><a href="javascript:;">修改信息</a></dd>
               <dd><a href="javascript:;">出口</a></dd>
