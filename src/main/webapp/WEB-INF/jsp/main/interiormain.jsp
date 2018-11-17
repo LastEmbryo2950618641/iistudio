@@ -111,6 +111,12 @@
 
 
           <div class="layui-row layui-col-space10">
+          
+          
+          
+          
+          
+          <c:forEach  items="${information}" var="item">
             <div class="layui-col-md2 ">
               <div class="grid-demo grid-demo-bg1 inform-co">
 
@@ -118,16 +124,17 @@
 
 
                   <div class="layui-col-md12">
+                  
                     <div class="layui-card">
                       <div class="layui-card-body">
                         <i class="layui-icon layui-icon-fire"></i>
-                        <datatime>2018.11.29</datatime>
+                        <datatime>${item.getPubdata() }</datatime>
                       </div>
 
-                        <div class="layui-card-body"><a href="#">明天开会  </a></div>
+                        <div class="layui-card-body"><a href="#">${item.getTitle()}  </a></div>
 
                        <div class="layui-card-body">
-                        请各位明天准时在10教到场
+                        ${item.getText() }
                       </div>
                     </div>
                   </div>
@@ -137,71 +144,24 @@
               </div>
             </div>
 
-            <div class="layui-col-md2 ">
-              <div class="grid-demo grid-demo-bg1 inform-co">
+      </c:forEach>
 
-                <div class="important-inform inform">
-                  <div class="layui-col-md12">
-                    <div class="layui-card">
-                      <div class="layui-card-header">
-                          <i class="layui-icon layui-icon-fire"></i>
-                        <datatime>2018.11.29</datatime>
-                      </div>
-                      <a href="#">
-                        <div class="layui-card-body">明天开会</div>
-                      </a>
-                      <div class="layui-card-body">
-                        请各位明天准时在10教到场
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                </a>
-              </div>
-            </div>
 
-            <div class="layui-col-md2 ">
-              <div class="grid-demo grid-demo-bg1 inform-co">
 
-                <div class="important-inform inform">
-                  <div class="layui-col-md12">
-                    <div class="layui-card">
-                      <div class="layui-card-body">
-                        <datatime>2018.11.29</datatime>
-                      </div>
-                      <a href="#">
-                        <div class="layui-card-body">明天开会</div>
-                      </a>
-                      <div class="layui-card-body">
-                        请各位明天准时在10教到场
-                      </div>
-                    </div>
-                  </div>
-                </div>
 
-              </div>
-            </div>
 
-            <div class="layui-col-md2 ">
-              <div class="grid-demo grid-demo-bg1 inform-co">
 
-                <div class="important-inform inform">
-                  <div class="layui-col-md12">
-                    <div class="layui-card">
-                      <div class="layui-card-body">
-                        <datatime>2018.11.29</datatime>
-                      </div>
-                      <a href="#">
-                        <div class="layui-card-body">明天开会</div>
-                      </a>
-                      <div class="layui-card-body">
-                        请各位明天准时在10教到场
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              </div>
+
+  
+
+
+
+
+           
+
+              
+              
+              
               <div class="layui-col-md4">
                 <div class="grid-demo dy-co inform-co">
                   <div class="layui-tab">
@@ -212,31 +172,13 @@
                     </ul>
                     <div class="layui-tab-content">
                       <div class="layui-tab-item layui-show">
+                      <c:forEach items="${informations}" var="item">
                            <inform>
-                               <informtime>2018.11.11</informtime>
-                               <informtitle><a href="#">明天开会</a></informtitle>
-                               <informauthor>xxxxxx</informauthor>
+                               <informtime>${item.getPubdata()}</informtime>
+                               <informtitle><a href="#">${item.getTitle()}</a></informtitle>
+                               <informauthor>${item.getUsername()}</informauthor>
                            </inform>
-                           <inform>
-                               <informtime>2018.11.11</informtime>
-                               <informtitle>明天开会</informtitle>
-                               <informauthor>xxxxxx</informauthor>
-                           </inform>
-                           <inform>
-                               <informtime>2018.11.11</informtime>
-                               <informtitle>明天开会</informtitle>
-                               <informauthor>xxxxxx</informauthor>
-                           </inform>
-                           <inform>
-                               <informtime>2018.11.11</informtime>
-                               <informtitle>明天开会</informtitle>
-                               <informauthor>xxxxxx</informauthor>
-                           </inform>
-                           <inform>
-                               <informtime>2018.11.11</informtime>
-                               <informtitle>明天开会</informtitle>
-                               <informauthor>xxxxxx</informauthor>
-                           </inform>
+                       </c:forEach> 
                             <div id="dopage"></div>
 
                       </div>
@@ -497,14 +439,12 @@
   <script>
     layui.use('element', function() {
       var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
-
       //监听导航点击
       element.on('nav(demo)', function(elem) {
         //console.log(elem)
         layer.msg(elem.text());
       });
     });
-
     layui.use(['laypage', 'layer'], function(){
     var laypage = layui.laypage
     ,layer = layui.layer;
@@ -515,10 +455,8 @@
           ,first: false
           ,last: false
         });
-
   });
   </script>
 
 </body>
-
 </html>

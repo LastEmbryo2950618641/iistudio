@@ -3,7 +3,7 @@
 <mapper namespace="cn.com.iistudio.mapper.CheckMapper">
 
 <select id="getCheck" resultType="cn.com.iistudio.entity.User" parameterType="User">
-   select privilege from MembersUser where UserName=#{userName}
+   select privilege from MembersUser where userName=#{userName}
 </select>
 
 
