@@ -6,8 +6,8 @@ import org.springframework.stereotype.Component;
 
 /**
  * @ClassName:User
- * @Description:ÓÃ»§ÊµÌåÀà£¬µ±Ç°ÓÃ»§
- * @author:ÁõÆæ
+ * @Description:ï¿½Ã»ï¿½Êµï¿½ï¿½ï¿½à£¬ï¿½ï¿½Ç°ï¿½Ã»ï¿½
+ * @author:ï¿½ï¿½ï¿½ï¿½
  * @date:2018.11.8
  * @version:1.0
  *
@@ -15,25 +15,25 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class User {
-	
-	private String nickname;//êÇ³Æ
-	private String username;//ÓÃ»§Ãû
-	private String password;//ÃÜÂë
-	private String gender;//ÐÔ±ð
-	private String headImage;//Í·ÏñµØÖ·
-	private String email;//ÓÊ¼þ
-	private String tel;//µç»°ºÅÂë
-	private String introduce;//×ÔÎÒ½éÉÜ
-	private Privilege privilege;//È¨ÏÞ
-	
-	
-	
-	  
+
+	private String nickname;//ï¿½Ç³ï¿½
+	private String username;//ï¿½Ã»ï¿½ï¿½ï¿½
+	private String password;//ï¿½ï¿½ï¿½ï¿½
+	private String gender;//ï¿½Ô±ï¿½
+	private String headImage;//Í·ï¿½ï¿½ï¿½ï¿½Ö·
+	private String email;//ï¿½Ê¼ï¿½
+	private String tel;//ï¿½ç»°ï¿½ï¿½ï¿½ï¿½
+	private String introduce;//ï¿½ï¿½ï¿½Ò½ï¿½ï¿½ï¿½
+	private Privilege privilege;//È¨ï¿½ï¿½
+
+
+
+
     /**
-     * 
-     * @Description:geter()£¬seter()·½·¨
+     *
+     * @Description:geter()ï¿½ï¿½seter()ï¿½ï¿½ï¿½ï¿½
      */
-	
+
 
 	public String getPassword() {
 		return password;
@@ -89,6 +89,6 @@ public class User {
 	public void setPrivilege(Privilege privilege) {
 		this.privilege = privilege;
 	}
-	
+
 
 }

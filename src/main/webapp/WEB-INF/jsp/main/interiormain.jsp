@@ -29,7 +29,7 @@
             <a href="">个人中心<span class="layui-badge-dot"></span></a>
           </li>
           <li class="layui-nav-item" lay-unselect="">
-            <a href="javascript:;"><img src="${currentUser.headImage}" class="layui-nav-img">${currentUser.getNickname()}</a>
+            <a href="javascript:;"><img src="${currentUser.getHeadImage()}" class="layui-nav-img">${currentUser.getNickname()}</a>
             <dl class="layui-nav-child">
               <dd><a href="javascript:;">修改信息</a></dd>
               <dd><a href="javascript:;">出口</a></dd>
@@ -72,7 +72,7 @@
 
 
             <div class="layui-row layui-col-space5">
-            
+
              <c:forEach items="${studioNewsList}" var="item">
 			              <div class="layui-col-md4">
 			                <div class="grid-demo grid-demo-bg1">
@@ -87,14 +87,14 @@
 			                    </Sdyimage>
 			                  </div>
 			                  </div>
-			
+
 			                </div>
 			              </div>
               </c:forEach>
-              
 
 
- 
+
+
 
             </div>
           </div>
@@ -111,11 +111,11 @@
 
 
           <div class="layui-row layui-col-space10">
-          
-          
-          
-          
-          
+
+
+
+
+
           <c:forEach  items="${information}" var="item">
             <div class="layui-col-md2 ">
               <div class="grid-demo grid-demo-bg1 inform-co">
@@ -124,7 +124,7 @@
 
 
                   <div class="layui-col-md12">
-                  
+
                     <div class="layui-card">
                       <div class="layui-card-body">
                         <i class="layui-icon layui-icon-fire"></i>
@@ -152,16 +152,16 @@
 
 
 
-  
 
 
 
 
-           
 
-              
-              
-              
+
+
+
+
+
               <div class="layui-col-md4">
                 <div class="grid-demo dy-co inform-co">
                   <div class="layui-tab">
@@ -178,7 +178,7 @@
                                <informtitle><a href="#">${item.getTitle()}</a></informtitle>
                                <informauthor>${item.getUsername()}</informauthor>
                            </inform>
-                       </c:forEach> 
+                       </c:forEach>
                             <div id="dopage"></div>
 
                       </div>
@@ -222,8 +222,8 @@
                     <div class="layui-tab-content">
                       <div class="layui-tab-item layui-show">
                         <resource>
-                        
-                          
+
+
                           <a href="#">
                             <item>
                               <i class="layui-icon layui-icon-file-b"></i>11111
@@ -232,7 +232,7 @@
                               <resourceauthor>6666</resourceauthor>
                             </item>
                           </a>
-                       
+
                         </resource>
                       </div>
                       <div class="layui-tab-item">

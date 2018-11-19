@@ -11,7 +11,7 @@ import cn.com.iistudio.mapper.InfromMapper;
 import cn.com.iistudio.service.serviceinter.InfromInter;
 @Service("infromImpl")
 public class InfromImpl implements InfromInter {
-	
+
 	@Autowired
 	InfromMapper infromMapper;
 

@@ -53,10 +53,14 @@ public class Resource {
 	public void setTypeByFormat(String typeByFormat) {
 		this.typeByFormat = typeByFormat;
 	}
-	
-	
-	
-	
+
+
+
+
+
+
+
+
 
 
 

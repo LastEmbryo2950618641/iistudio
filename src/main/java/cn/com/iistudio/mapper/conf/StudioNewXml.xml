@@ -2,11 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.com.iistudio.mapper.StudioNewMapper">
 <select id="getAllNews" resultType="cn.com.iistudio.entity.StudioNews">
-   select * from StudioNews 
+   select * from StudioNews
 </select>
 
 <select id="getUserNews" resultType="cn.com.iistudio.entity.StudioNews" parameterType="String">
-   select *from StudioNews where username=#{username} 
+   select *from StudioNews where username=#{username}
 </select>
 
 <select id="getOneNew" resultType="cn.com.iistudio.entity.StudioNews" parameterType="int">

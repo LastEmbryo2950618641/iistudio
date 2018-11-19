@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.com.iistudio.mapper.RegisterMapper">
- 
+
  <!-- 写入注册信息 -->
 <insert id="writeTourist" parameterType="cn.com.iistudio.entity.User">
- 
+
   INSERT  INTO MembersUser(nickname,username,gender,headImage,email,tel) VALUES(#{nickname},#{username},#{gender},#{headImage},#{email},#{tel});
 </insert>
-  
+
  <insert id="writeTouristAccount" parameterType="cn.com.iistudio.entity.User">
   INSERT INTO User(username,password) VALUES(#{username},#{password})
-    
+
 </insert>
-   
+
 </mapper>

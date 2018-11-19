@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.iistudio.mapper.ResourceMapper">
+<select id="getResourcesByContent" resultType="cn.com.iistudio.entity.Resource">
+
+select r.id,mu.nickname,r.pubdata,r.Title,r.`description`,tbc.type typeByContent,tbf.type typeByFormat from Resources as r,TypeByContent as tbc,TypeByFormat as tbf,MembersUser as mu where  r.typeByFormat = tbf.id and r.typeByContent = tbc.id and r.username = mu.username and r.typeByContent = #{1} order by r.pubdata limit 0,#{0};
+</select>
+
+<select id="getResourcesByFormat" resultType="cn.com.iistudio.entity.Resource">
+
+select r.id,mu.nickname,r.pubdata,r.Title,r.`description`,tbc.type typeByContent,tbf.type typeByFormat from Resources as r,TypeByContent as tbc,TypeByFormat as tbf,MembersUser as mu where  r.typeByFormat = tbf.id and r.typeByContent = tbc.id and r.username = mu.username and r.TypeByFormat = #{1} order by r.pubdata limit 0,#{0};
+
+</select>
+
+<select id="getResources" resultType="cn.com.iistudio.entity.Resource">
+
+select r.id,r.username,r.pubdata,r.title,r.`description`,r.typeByContent,r.typeByFormat from Resources as r order by r.pubdata limit 0,#{0};
+
+</select>
+
+<select id="getAllResources" resultType="cn.com.iistudio.entity.Resource">
+
+select r.id,r.username,r.pubdata,r.title,r.`description`,r.typeByContent,r.typeByFormat from Resources as r ;
+
+</select>
+
+
+</mapper>
