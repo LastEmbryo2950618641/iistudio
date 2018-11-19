@@ -3,12 +3,12 @@
 <mapper namespace="cn.com.iistudio.mapper.ResourceMapper">
 <select id="getResourcesByContent" resultType="cn.com.iistudio.entity.Resource">
 
-select r.id,mu.nickname,r.pubdata,r.Title,r.`description`,tbc.type typeByContent,tbf.type typeByFormat from Resources as r,TypeByContent as tbc,TypeByFormat as tbf,MembersUser as mu where  r.typeByFormat = tbf.id and r.typeByContent = tbc.id and r.username = mu.username and r.typeByContent = #{1} order by r.pubdata limit 0,#{0};
+select r.id,mu.nickname,r.pubdata,r.title,r.`description`,tbc.type typeByContent,tbf.type typeByFormat from Resources as r,TypeByContent as tbc,TypeByFormat as tbf,MembersUser as mu where  r.typeByFormat = tbf.id and r.typeByContent = tbc.id and r.username = mu.username and r.typeByContent = #{1} order by r.pubdata limit 0,#{0};
 </select>
 
 <select id="getResourcesByFormat" resultType="cn.com.iistudio.entity.Resource">
 
-select r.id,mu.nickname,r.pubdata,r.Title,r.`description`,tbc.type typeByContent,tbf.type typeByFormat from Resources as r,TypeByContent as tbc,TypeByFormat as tbf,MembersUser as mu where  r.typeByFormat = tbf.id and r.typeByContent = tbc.id and r.username = mu.username and r.TypeByFormat = #{1} order by r.pubdata limit 0,#{0};
+select r.id,mu.nickname,r.pubdata,r.title,r.`description`,tbc.type typeByContent,tbf.type typeByFormat from Resources as r,TypeByContent as tbc,TypeByFormat as tbf,MembersUser as mu where  r.typeByFormat = tbf.id and r.typeByContent = tbc.id and r.username = mu.username and r.TypeByFormat = #{1} order by r.pubdata limit 0,#{0};
 
 </select>
 
