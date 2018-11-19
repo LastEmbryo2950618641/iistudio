@@ -12,6 +12,7 @@ import cn.com.iistudio.entity.ICurrentUser;
 import cn.com.iistudio.entity.Resource;
 import cn.com.iistudio.entity.StudioNews;
 import cn.com.iistudio.entity.User;
+import cn.com.iistudio.mapper.InfromMapper;
 import cn.com.iistudio.service.serviceinter.MainInter;
 
 
@@ -31,6 +32,9 @@ public class MainController {
   	ICurrentUser currentUser;
     @Autowired
     MainInter mainInter;
+    
+    @Autowired
+    InfromMapper infromMapper;
      
      /**
       * @Title: /
@@ -80,7 +84,8 @@ public class MainController {
 		  
 			studioNewsList = mainInter.readDStudioNews(3);
 			
-		
+		    mav.addObject("information", infromMapper.getNumber(4));
+		    mav.addObject("informations", infromMapper.getless(4));
 			mav.addObject("currentUser", user);
 			mav.addObject("studioNewsList", studioNewsList);
 			mav.setViewName("main/interiormain");
