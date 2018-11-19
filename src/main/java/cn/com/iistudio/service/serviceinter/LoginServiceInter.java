@@ -26,6 +26,6 @@ public interface LoginServiceInter {
 	 * @return User
 	 * 
 	 */
-	public User getUserinformation(String username);
+	public User getUserinformation(String UserName);
 
 }

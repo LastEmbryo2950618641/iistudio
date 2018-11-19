@@ -8,9 +8,9 @@ public interface StudioNewsinter {
 	
 	public List<StudioNews> getAllNews();
 
-	   public List<StudioNews> getUserNews(String username);
+	   public List<StudioNews> getUserNews(String UserName);
 
-	   public StudioNews getOneNew(int id);
+	   public StudioNews getOneNew(int Id);
 
 	   public List<StudioNews> getNumber(int number);
 

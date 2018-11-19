@@ -3,13 +3,12 @@ package cn.com.iistudio.service.serviceipml;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import cn.com.iistudio.entity.Infrom;
 import cn.com.iistudio.entity.StudioNews;
 import cn.com.iistudio.mapper.InfromMapper;
 import cn.com.iistudio.service.serviceinter.InfromInter;
-@Service("infromImpl")
+
 public class InfromImpl implements InfromInter {
 	
 	@Autowired
@@ -22,15 +21,15 @@ public class InfromImpl implements InfromInter {
 	}
 
 	@Override
-	public List<StudioNews> getUserinformation(String username) {
+	public List<StudioNews> getUserinformation(String UserName) {
 		// TODO Auto-generated method stub
-		return infromMapper.getUserinformation(username);
+		return infromMapper.getUserinformation(UserName);
 	}
 
 	@Override
-	public StudioNews getOneinformation(int id) {
+	public StudioNews getOneinformation(int Id) {
 		// TODO Auto-generated method stub
-		return infromMapper.getOneinformation(id);
+		return infromMapper.getOneinformation(Id);
 	}
 
 	@Override
@@ -38,6 +37,8 @@ public class InfromImpl implements InfromInter {
 		// TODO Auto-generated method stub
 		return infromMapper.getNumber(number);
 	}
+
+	
 
 	@Override
 	public Boolean information(Infrom infrom) {

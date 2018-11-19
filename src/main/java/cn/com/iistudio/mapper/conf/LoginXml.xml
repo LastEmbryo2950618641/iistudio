@@ -8,7 +8,7 @@
  </select>
 
 <select id="getUserInformation"  resultType="cn.com.iistudio.entity.User" parameterType="String">
-     select * from MembersUser where username=#{username}
+     select * from MembersUser where userName=#{userName}
  </select>
 
 </mapper>

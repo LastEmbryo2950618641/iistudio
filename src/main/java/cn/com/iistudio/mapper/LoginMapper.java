@@ -6,5 +6,5 @@ import cn.com.iistudio.entity.User;
 
 public interface LoginMapper {
     public List<User> getAll();
-    public User getUserInformation(String username);
+    public User getUserInformation(String UserName);
 }

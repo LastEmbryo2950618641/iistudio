@@ -9,13 +9,11 @@ public interface InfromMapper {
 
 	   public List<StudioNews> getAllinformation();
 
-	   public List<StudioNews> getUserinformation(String username);
+	   public List<StudioNews> getUserinformation(String UserName);
 
-	   public StudioNews getOneinformation(int id);
+	   public StudioNews getOneinformation(int Id);
 
 	   public List<StudioNews> getNumber(int number);
-	   
-	   public List<StudioNews> getless(int number);
 
 	   public Boolean information(Infrom infrom);
 

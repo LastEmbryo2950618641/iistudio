@@ -1,13 +1,11 @@
 package cn.com.iistudio.entity;
 
-import java.sql.Timestamp;
-
 public class Infrom {
 	private int id;
 	private String title;
 	private String describle;
 	private String text;
-	private Timestamp pubdata;
+	private String Pubdata;
 	private String username;
 	public int getId() {
 		return id;
@@ -34,12 +32,11 @@ public class Infrom {
 		this.text = text;
 	}
 	
-	
-	public Timestamp getPubdata() {
-		return pubdata;
+	public String getPubdata() {
+		return Pubdata;
 	}
-	public void setPubdata(Timestamp pubdata) {
-		this.pubdata = pubdata;
+	public void setPubdata(String pubdata) {
+		Pubdata = pubdata;
 	}
 	public String getUsername() {
 		return username;

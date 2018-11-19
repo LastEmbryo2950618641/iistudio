@@ -2,15 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.com.iistudio.mapper.PermissionsMapper">
 <update id="addPermission" parameterType="String">
-   update User set Privilege+=1 where username=#{username}
+   update Privilege set Privilege+=1 where userName=#{UserName}
 </update>
 
 <update id="increasePermission" parameterType="String">
-   update User set Privilege-=1 where username=#{username}
+   update Privilege set Privilege-=1 where userName=#{UserName}
 </update>
 
 <update id=" deleteone" parameterType="String">
-   delete from User,MembersUser where username=#{username};
+   delete from Privilege where userName=#{UserName};
 </update>
 
 </mapper>

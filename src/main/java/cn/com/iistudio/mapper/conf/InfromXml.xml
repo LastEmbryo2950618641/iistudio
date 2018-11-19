@@ -1,28 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.com.iistudio.mapper.InfromMapper">
-<select id="getAllinformation" resultType="cn.com.iistudio.entity.Infrom">
-   select * from Notice order by pubdata desc
+<select id="getAllNews" resultType="cn.com.iistudio.entity.StudioNews">
+   select * from Publisher order by Pubdata desc
 </select>
 
-<select id="getUserinformation" resultType="cn.com.iistudio.entity.Infrom" parameterType="String">
-   select * from Notice where username=#{username} order by pubdata desc
+<select id="getUserNews" resultType="cn.com.iistudio.entity.StudioNews" parameterType="String">
+   select *from Publisher where UserName=#{UserName} order by Pubdata desc
 </select>
 
-<select id="getOneinformation" resultType="cn.com.iistudio.entity.Infrom" parameterType="int">
-   select * from Notice where id=#{id}
+<select id="getOneNew" resultType="cn.com.iistudio.entity.StudioNews" parameterType="int">
+   select *from Publisher where Id=#{Id}
 </select>
 
-<select id="getNumber" resultType="cn.com.iistudio.entity.Infrom" parameterType="int">
-   SELECT * FROM (SELECT * FROM Notice ORDER BY Notice.pubdata) as t LIMIT 0,#{number-1}
+<select id="getNumber" resultType="cn.com.iistudio.entity.StudioNews" parameterType="int">
+   SELECT * FROM (SELECT * FROM Publisher ORDER BY Publisher.Pubdata) as t LIMIT 0,#{number}
 </select>
 
-<insert id="information" parameterType="cn.com.iistudio.entity.Infrom">
-   insert into Notice values(#{id},#{title},#{description},#{text},#{pubdata},#{username})
+<insert id="insertNew" parameterType="cn.com.iistudio.entity.StudioNews">
+   insert into Publisher values(#{Id},#{Username},#{Pubdata},#{Text},#{Image},#{Attachment},#{Titles})
 </insert>
-
-<select id="getless" resultType="cn.com.iistudio.entity.Infrom" parameterType="int">
-   SELECT * FROM (SELECT * FROM Notice ORDER BY Notice.pubdata) as t LIMIT #{number-1}, 8
-</select>
-
 </mapper>

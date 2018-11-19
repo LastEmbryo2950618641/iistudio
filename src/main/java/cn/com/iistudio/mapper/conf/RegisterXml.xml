@@ -4,13 +4,12 @@
  
  <!-- 写入注册信息 -->
 <insert id="writeTourist" parameterType="cn.com.iistudio.entity.User">
- 
-  INSERT  INTO MembersUser(nickname,username,gender,headImage,email,tel) VALUES(#{nickname},#{username},#{gender},#{headImage},#{email},#{tel});
+  
+  INSERT  INTO MembersUser(nickName,userName,password,gender,headImage,email,tel) VALUES(#{nickName},#{userName},#{password},#{gender},#{headImage},#{email},#{tel});
 </insert>
   
  <insert id="writeTouristAccount" parameterType="cn.com.iistudio.entity.User">
-  INSERT INTO User(username,password) VALUES(#{username},#{password})
-    
+    INSERT INTO User(userName,password) VALUES(#{userName},#{password})
 </insert>
    
 </mapper>
