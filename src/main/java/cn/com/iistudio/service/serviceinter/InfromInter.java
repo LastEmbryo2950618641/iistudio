@@ -8,9 +8,9 @@ import cn.com.iistudio.entity.StudioNews;
 public interface InfromInter {
     
 	
-	public List<StudioNews> getAllinformation();
+	   public List<StudioNews> getAllinformation();
 
-	   public List<StudioNews> getUserinformation(String UserName);
+	   public List<StudioNews> getUserinformation(String username);
 
 	   public StudioNews getOneinformation(int Id);
 

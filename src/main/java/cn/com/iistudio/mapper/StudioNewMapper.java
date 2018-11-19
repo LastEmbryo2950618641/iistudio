@@ -7,7 +7,7 @@ import cn.com.iistudio.entity.StudioNews;
 public interface StudioNewMapper {
    public List<StudioNews> getAllNews();
 
-   public List<StudioNews> getUserNews(String UserName);
+   public List<StudioNews> getUserNews(String uername);
 
    public StudioNews getOneNew(int Id);
 

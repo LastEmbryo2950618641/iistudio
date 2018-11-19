@@ -11,7 +11,9 @@ import cn.com.iistudio.entity.ICurrentUser;
 import cn.com.iistudio.entity.Infrom;
 import cn.com.iistudio.entity.User;
 import cn.com.iistudio.service.serviceinter.InfromInter;
-
+import java.util.Date;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 
 @Controller
 public class AdministratorController {
@@ -33,14 +35,19 @@ public class AdministratorController {
 	}
 	
 	@ResponseBody
-	@RequestMapping("admire")
+	@RequestMapping("releases")
 	public Boolean release(@RequestBody Infrom infrom) {
 		
 		if(infrom.getUsername()==null) {
-			infrom.setUsername(iCurrentUser.getUser().getUserName());
+			infrom.setUsername(iCurrentUser.getUser().getUsername());
 		}
 		if(infrom.getDescrible()==null) {
 			infrom.setDescrible("此人很懒未有描述");
+		}
+		if(infrom.getPubdata()==null) {
+	     Date d = new Date();
+	     Timestamp pubdata=(Timestamp)d;
+	     infrom.setPubdata(pubdata);
 		}
 		if(infromInter.information(infrom)) {
 			return true;

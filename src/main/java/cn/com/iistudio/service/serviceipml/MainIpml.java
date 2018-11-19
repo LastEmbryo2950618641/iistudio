@@ -44,14 +44,14 @@ public class MainIpml implements MainInter{
 		}
 		else if(typeOftype.equalsIgnoreCase("CONTENT"))
 		{
-			String ContentType = type;
-			list = resourceMapper.getResourcesByContent(num, ContentType);
+			String contentType = type;
+			list = resourceMapper.getResourcesByContent(num, contentType);
 			
 		}
 		else if(typeOftype.equalsIgnoreCase("FORMAT")) 
 		{
-			String FormatType = type;
-			list = resourceMapper.getResourcesByContent(num, FormatType);
+			String formatType = type;
+			list = resourceMapper.getResourcesByContent(num, formatType);
 		}
 		
 		

@@ -1,9 +1,8 @@
 package cn.com.iistudio.entity;
 
-import org.springframework.context.annotation.Scope;
-import org.springframework.context.annotation.ScopedProxyMode;
+
 import org.springframework.stereotype.Component;
-import org.springframework.web.context.WebApplicationContext;
+
 
 /**
  * @ClassName:User
@@ -17,8 +16,8 @@ import org.springframework.web.context.WebApplicationContext;
 @Component
 public class User {
 	
-	private String nickName;//昵称
-	private String userName;//用户名
+	private String nickname;//昵称
+	private String username;//用户名
 	private String password;//密码
 	private String gender;//性别
 	private String headImage;//头像地址
@@ -35,20 +34,21 @@ public class User {
      * @Description:geter()，seter()方法
      */
 	
-	public String getNickName() {
-		return nickName;
-	}
-	public void setNickName(String nickName) {
-		this.nickName = nickName;
-	}
-	public String getUserName() {
-		return userName;
-	}
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
+
 	public String getPassword() {
 		return password;
+	}
+	public String getNickname() {
+		return nickname;
+	}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
 	}
 	public void setPassword(String password) {
 		this.password = password;
