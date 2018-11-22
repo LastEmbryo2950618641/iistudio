@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import cn.com.iistudio.entity.ICurrentUser;
+import cn.com.iistudio.entity.Infrom;
 import cn.com.iistudio.entity.Resource;
 import cn.com.iistudio.entity.StudioNews;
 import cn.com.iistudio.entity.User;
@@ -83,22 +84,20 @@ public class MainController {
 			//��ǰ�û�
 			User user = new User();
 			user = currentUser.getUser();
-			//��̬��Ϣ
-			List<StudioNews> studioNewsList = null;
-			//��Դ
-			List<Resource> resourcesList = null;
+			
 
 			if(!StringUtils.isEmpty(user))
 			{
 
-			studioNewsList = mainInter.readDStudioNews(3);
-
-		  	resourcesList = mainInter.readResource(4, "CONTENT", "ai");
-		    mav.addObject("information", infromMapper.getNumber(4));
-		    mav.addObject("informations", infromMapper.getless(4));
-			mav.addObject("currentUser", user);
-			mav.addObject("studioNewsList", studioNewsList);
-			mav.setViewName("main/interiormain");
+				if(!user.getPrivilege().equals("2"))
+				{
+					mav.setViewName("redirect:interiormain");
+				}
+				else
+				{
+					mav.setViewName("main/select");
+				}
+			
 			}
 			else
 			{
@@ -114,9 +113,34 @@ public class MainController {
 		{
 			ModelAndView mav = new ModelAndView();
 			List<User> list = AdministratorIpml.getAllMembers();
+			User user = new User();
+			user = currentUser.getUser();
+			
+			mav.addObject("notice", new Infrom());
 			mav.addObject("membersList", list);
-			mav.setViewName("");
+			mav.addObject("currentUser", user);
+			mav.setViewName("main/managepage");
 			return mav;
 
+		}
+		
+		@RequestMapping("/interiormain")
+		public ModelAndView entryInteriormain()
+		{	
+			ModelAndView mav = new ModelAndView();
+			List<StudioNews> studioNewsList = mainInter.readDStudioNews(3);
+			User user = new User();
+			user = currentUser.getUser();
+		
+			
+		    mav.addObject("information", infromMapper.getNumber(4));
+		    mav.addObject("informations", infromMapper.getless(4));
+		    
+		    
+			mav.addObject("currentUser", user);
+			mav.addObject("studioNewsList", studioNewsList);
+			mav.setViewName("main/interiormain");
+			
+			return mav;
 		}
 }

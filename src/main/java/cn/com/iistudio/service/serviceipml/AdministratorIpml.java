@@ -1,12 +1,15 @@
 package cn.com.iistudio.service.serviceipml;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
+import cn.com.iistudio.entity.ICurrentUser;
+import cn.com.iistudio.entity.Infrom;
 import cn.com.iistudio.entity.User;
+import cn.com.iistudio.mapper.InfromMapper;
 import cn.com.iistudio.mapper.MemberMapper;
 import cn.com.iistudio.mapper.PrivilegeMapper;
 import cn.com.iistudio.service.serviceinter.AdministratorInter;
@@ -18,7 +21,12 @@ public class AdministratorIpml implements AdministratorInter {
 	MemberMapper memberMapper;
 	@Autowired
 	PrivilegeMapper privilegeMapper;
-		
+	@Autowired
+	ICurrentUser CurrentUser;
+	@Autowired
+	InfromMapper infromMapper;
+	
+	
 	@Override
 	public void deleteMember(String username) {
 		// TODO Auto-generated method stub
@@ -65,6 +73,18 @@ public class AdministratorIpml implements AdministratorInter {
 			memberMapper.deleteMember(string);
 		}
 		
+	}
+
+	@Override
+	public void storgeInform(Infrom infrom,String scope) {
+		// TODO Auto-generated method stub
+		Timestamp pubdata = new Timestamp(System.currentTimeMillis());
+		String username = CurrentUser.getUser().getUsername();
+		infrom.setPubdata(pubdata);
+		infrom.setUsername(username);
+		infrom.setScope(scope);
+		
+		infromMapper.insertNotice(infrom);
 	}
 
 }

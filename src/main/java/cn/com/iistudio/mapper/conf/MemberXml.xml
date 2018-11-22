@@ -3,13 +3,13 @@
 <mapper namespace="cn.com.iistudio.mapper.MemberMapper">
 
 <delete id="deleteMember" parameterType="String">
-
 	DELETE FROM MembersUser WHERE username = #{username} 
 </delete>
 
+
 <select id="getAllMembers" resultType="cn.com.iistudio.entity.User">
-
-   SELECT * FROM MembersUser;
-
+	SELECT a.nickname,a.username,b.password,a.gender,a.headImage,a.email,a.tel,a.introduce,b.privilege FROM MembersUser as a,User as b where a.username=b.username
 </select>
+
+
 </mapper>

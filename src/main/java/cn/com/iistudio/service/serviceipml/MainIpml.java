@@ -7,9 +7,15 @@ import org.springframework.stereotype.Service;
 
 import cn.com.iistudio.entity.Resource;
 import cn.com.iistudio.entity.StudioNews;
+import cn.com.iistudio.entity.User;
+import cn.com.iistudio.mapper.InfromMapper;
+import cn.com.iistudio.mapper.MemberMapper;
 import cn.com.iistudio.mapper.ResourceMapper;
 import cn.com.iistudio.mapper.StudioNewMapper;
 import cn.com.iistudio.service.serviceinter.MainInter;
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+
 
 @Service("mainInter")
 public class MainIpml implements MainInter{
@@ -19,6 +25,11 @@ public class MainIpml implements MainInter{
 	StudioNewMapper studioNewMapper;
     @Autowired
     ResourceMapper resourceMapper;
+    @Autowired
+    MemberMapper memberMapper;
+    @Autowired
+    MainInter mainInter;
+    
 	@Override
 	public List<StudioNews> readDStudioNews(int num) {
 		// TODO Auto-generated method stub
@@ -56,6 +67,14 @@ public class MainIpml implements MainInter{
 		
 		
 		return list;
+	}
+
+	@Override
+	public JSONObject getMenbers() {
+		// TODO Auto-generated method stub
+		List<User> list = memberMapper.getAllMembers();
+		JSONArray json = JSONArray.fromObject(list);     
+		return null;
 	}
 
 }

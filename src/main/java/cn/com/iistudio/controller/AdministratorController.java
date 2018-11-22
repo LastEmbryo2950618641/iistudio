@@ -2,6 +2,7 @@ package cn.com.iistudio.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -46,8 +47,8 @@ public class AdministratorController {
 		if(infrom.getUsername()==null) {
 			infrom.setUsername(iCurrentUser.getUser().getUsername());
 		}
-		if(infrom.getDescrible()==null) {
-			infrom.setDescrible("���˺���δ������");
+		if(infrom.getDescription()==null) {
+			infrom.setDescription("���˺���δ������");
 		}
 		if(infrom.getPubdata()==null) {
 	     Date d = new Date();
@@ -110,6 +111,18 @@ public class AdministratorController {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("redirect:/525station/administrator");
 		return modelAndView;
+	}
+	
+	
+	@RequestMapping("releaseInform")
+	public ModelAndView reducePrivilege(@ModelAttribute("notice") Infrom infrom,@RequestParam("scope") String scope)
+	{
+		AdministratorIpml.storgeInform(infrom, scope);
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("redirect:/administrator");
+		return modelAndView;
+
+		
 	}
 
 }

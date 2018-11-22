@@ -18,11 +18,17 @@
 </select>
 
 <insert id="information" parameterType="cn.com.iistudio.entity.Infrom">
-   insert into Notice values(#{id},#{title},#{description},#{text},#{pubdata},#{username})
+   insert into Notice values(#{id},#{title},#{description},#{text},#{pubdata},#{username},#{scope})
 </insert>
 
 <select id="getless" resultType="cn.com.iistudio.entity.Infrom" parameterType="int">
    SELECT * FROM (SELECT * FROM Notice ORDER BY Notice.pubdata) as t LIMIT #{number-1}, 8
 </select>
+
+
+<insert id="insertNotice">
+  INSERT INTO Notice(title,description,text,pubdata,username,scope) VALUES(#{title},#{description},#{text},#{pubdata},#{username},#{scope})
+
+</insert>
 
 </mapper>

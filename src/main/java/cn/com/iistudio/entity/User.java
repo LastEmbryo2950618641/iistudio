@@ -24,7 +24,7 @@ public class User {
 	private String email;//�ʼ�
 	private String tel;//�绰����
 	private String introduce;//���ҽ���
-	private Privilege privilege;//Ȩ��
+	private String privilege;//Ȩ��
 
 
 
@@ -83,12 +83,13 @@ public class User {
 	public void setIntroduce(String introduce) {
 		this.introduce = introduce;
 	}
-	public Privilege getPrivilege() {
+	public String getPrivilege() {
 		return privilege;
 	}
-	public void setPrivilege(Privilege privilege) {
+	public void setPrivilege(String privilege) {
 		this.privilege = privilege;
 	}
-
+	
+	
 
 }

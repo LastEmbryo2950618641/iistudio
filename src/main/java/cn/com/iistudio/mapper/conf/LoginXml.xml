@@ -4,11 +4,12 @@
 
 
 <select id="getAll"  resultType="cn.com.iistudio.entity.User">
-     select * from User
+         select b.nickname, b.username, a.password,b.gender,b.headImage,b.email,b.tel,b.introduce,a.privilege from User as a,MembersUser as b
  </select>
 
 <select id="getUserInformation"  resultType="cn.com.iistudio.entity.User" parameterType="String">
-     select * from MembersUser where username=#{username}
+     select b.nickname, b.username, a.password,b.gender,b.headImage,b.email,b.tel,b.introduce,a.privilege from User as a,MembersUser as b where a.username=b.username and a.username=#{username} 
+     
  </select>
 
 </mapper>

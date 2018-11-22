@@ -18,6 +18,8 @@ public interface InfromMapper {
 	   public List<StudioNews> getless(int number);
 
 	   public Boolean information(Infrom infrom);
+	   
+	   public void insertNotice(Infrom infrom);
 
 	
 }

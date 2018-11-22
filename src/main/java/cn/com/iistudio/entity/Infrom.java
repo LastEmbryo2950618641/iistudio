@@ -5,10 +5,18 @@ import java.sql.Timestamp;
 public class Infrom {
 	private int id;
 	private String title;
-	private String describle;
+	private String description;
 	private String text;
 	private Timestamp pubdata;
 	private String username;
+	private String scope;
+	
+	public String getScope() {
+		return scope;
+	}
+	public void setScope(String scope) {
+		this.scope = scope;
+	}
 	public int getId() {
 		return id;
 	}
@@ -21,11 +29,12 @@ public class Infrom {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getDescrible() {
-		return describle;
+	
+	public String getDescription() {
+		return description;
 	}
-	public void setDescrible(String describle) {
-		this.describle = describle;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	public String getText() {
 		return text;
