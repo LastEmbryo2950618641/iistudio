@@ -7,15 +7,19 @@ import cn.com.iistudio.entity.StudioNews;
 
 public interface InfromMapper {
 
-	   public List<StudioNews> getAllinformation();
+	   public List<Infrom> getAllinformation();
 
-	   public List<StudioNews> getUserinformation(String username);
+	   public List<Infrom> getUserinformation(String username);
 
-	   public StudioNews getOneinformation(int id);
+	   public Infrom getOneinformation(int id);
 
-	   public List<StudioNews> getNumber(int number);
+	   public List<Infrom> getNumber(int number);
 	   
-	   public List<StudioNews> getless(int number);
+	   public List<Infrom> getless(int number);
+	   
+       public List<Infrom> getNumberByType(int number,String type);
+	   
+	   public List<Infrom> getlessByType(int number,String type);
 
 	   public Boolean information(Infrom infrom);
 	   

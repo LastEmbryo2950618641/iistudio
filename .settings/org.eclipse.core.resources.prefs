@@ -1,6 +1,7 @@
 eclipse.preferences.version=1
+encoding//src/main/java/cn/com/iistudio/controller/MainController.java=UTF-8
+encoding//src/main/java/cn/com/iistudio/service/serviceipml/MainIpml.java=UTF-8
 encoding//src/main/webapp/WEB-INF/jsp/main/interiormain.jsp=UTF-8
-encoding//src/main/webapp/WEB-INF/jsp/main/main.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/jsp/main/managepage.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/jsp/main/registerpage.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/jsp/main/select.jsp=UTF-8

@@ -20,7 +20,7 @@
 
     <div class="layui-header header header-demo" winter>
       <div class="layui-main">
-        <a class="logo" href="/">
+        <a class="logo" href="/525station/">
           <img src="/525station/static/LOGO/logo.png" alt="layui">
         </a>
 
@@ -29,11 +29,27 @@
             <a href="">个人中心<span class="layui-badge-dot"></span></a>
           </li>
           <li class="layui-nav-item" lay-unselect="">
-            <a href="javascript:;"><img src="${currentUser.getHeadImage()}" class="layui-nav-img">${currentUser.getNickname()}</a>
-            <dl class="layui-nav-child">
-              <dd><a href="javascript:;">修改信息</a></dd>
-              <dd><a href="javascript:;">出口</a></dd>
-            </dl>
+            <c:choose>
+				<c:when test="${currentUser!=null}">
+		            <a href="javascript:;"><img src="${currentUser.getHeadImage()}" class="layui-nav-img">${currentUser.getNickname()}</a>
+		            <dl class="layui-nav-child">
+		              <dd><a href="javascript:;">修改信息</a></dd>
+		              <dd><a href="/525station/Administrator/exitMp">出口</a></dd>
+		            </dl>
+	             </c:when>
+	             
+            <c:otherwise>
+	            <a href="javascript:;"><img src="/525station/static/images/NoName.PNG" class="layui-nav-img">游客</a>
+	            <dl class="layui-nav-child">
+	              <dd><a href="/525station/resgiterAccount">注册</a></dd>
+	              <dd><a href="/525station/loginAccount">登录</a></dd>
+	              <c:if test="${currentUser.getPrivilege() == '2'}">
+	                <dd><a href="/525station/InvitateInteriormain">进入选择界面</a></dd>
+	              </c:if>
+	            </dl>
+           </c:otherwise>
+           
+           </c:choose>
           </li>
         </ul>
       </div>
@@ -168,7 +184,6 @@
                     <ul class="layui-tab-title">
                       <li class="layui-this">时间</li>
 
-                      <li>权限分配</li>
                     </ul>
                     <div class="layui-tab-content">
                       <div class="layui-tab-item layui-show">
@@ -182,7 +197,7 @@
                             <div id="dopage"></div>
 
                       </div>
-                      <div class="layui-tab-item">内容2</div>
+                   
 
                     </div>
                   </div>
@@ -221,47 +236,84 @@
                     </ul>
                     <div class="layui-tab-content">
                       <div class="layui-tab-item layui-show">
+                    
                         <resource>
 
-
+                          <c:forEach items="${aiResourceList}" var="item">
                           <a href="#">
+                              ${item.getTypeByFormat()};
                             <item>
-                              <i class="layui-icon layui-icon-file-b"></i>11111
-                             <resourcesketch>2222</resourcesketch>
-                             <resourcetime>555</resourcetime>
-                              <resourceauthor>6666</resourceauthor>
+                              <c:choose>
+                    	             <c:when test="${item.getTypeByFormat()=='ess'}">
+                    	             <i class="layui-icon layui-icon-file-b"></i>
+                    	             </c:when>
+                    	             <c:when test="${item.getTypeByFormat()=='vid'}">
+                    	              <i class="layui-icon layui-icon-video"></i>
+                    	             </c:when>
+                    	             
+                              </c:choose>
+                              
+                                                                                《${item.getTitle() }》
+                             <resourcesketch>${item.getDescription()}</resourcesketch>
+                             <resourcetime>${item.getPubdata()}</resourcetime>
+                              <resourceauthor>${item.getNickname() }</resourceauthor>
                             </item>
                           </a>
-
+                          </c:forEach>
+                          
                         </resource>
                       </div>
                       <div class="layui-tab-item">
                         <resource>
+                          
+                           <c:forEach items="${wfeResourceList}" var="item">
                           <a href="#">
-                            <item>什么是人工智能？</item>
+                            <item>
+                              <i class="layui-icon layui-icon-file-b"></i>《${item.getTitle() }》
+                             <resourcesketch>${item.getDescription()}</resourcesketch>
+                             <resourcetime>${item.getPubdata()}</resourcetime>
+                              <resourceauthor>${item.getNickname() }</resourceauthor>
+                            </item>
                           </a>
-                          <a href="#">
-                            <item>什么是人工智能？</item>
-                          </a>
-                          <a href="#">
-                            <item>什么是人工智能？</item>
-                          </a>
-                          <a href="#">
-                            <item>什么是人工智能？</item>
-                          </a>
-                          <a href="#">
-                            <item>什么是人工智能？</item>
-                          </a>
-                          <a href="#">
-                            <item>什么是人工智能？</item>
-                          </a>
-                          <a href="#">
-                            <item>更多......</item>
-                          </a>
+                          </c:forEach>
+                         
+                          
                         </resource>
                       </div>
-                      <div class="layui-tab-item">内容3</div>
-                      <div class="layui-tab-item">内容4</div>
+                      <div class="layui-tab-item">
+                      <resource>
+                          
+                           <c:forEach items="${reResourceList}" var="item">
+                          <a href="#">
+                            <item>
+                              <i class="layui-icon layui-icon-file-b"></i>《${item.getTitle() }》
+                             <resourcesketch>${item.getDescription()}</resourcesketch>
+                             <resourcetime>${item.getPubdata()}</resourcetime>
+                              <resourceauthor>${item.getNickname() }</resourceauthor>
+                            </item>
+                          </a>
+                          </c:forEach>
+                         
+                          
+                        </resource>
+                      </div>
+                      <div class="layui-tab-item">
+                      <resource>
+                      
+                           <c:forEach items="${bigDataResourceList}" var="item">
+                          <a href="#">
+                            <item>
+                              <i class="layui-icon layui-icon-file-b"></i>《${item.getTitle() }》
+                             <resourcesketch>${item.getDescription()}</resourcesketch>
+                             <resourcetime>${item.getPubdata()}</resourcetime>
+                              <resourceauthor>${item.getNickname() }</resourceauthor>
+                            </item>
+                          </a>
+                          </c:forEach>
+                         
+                          
+                        </resource>
+                      </div>
                       <div class="layui-tab-item">
 
                         <ul class="layui-timeline">

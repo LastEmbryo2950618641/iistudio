@@ -34,15 +34,15 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">IISTUDIO</a>
+        <a class="navbar-brand" href="/525station/">IISTUDIO</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
         <ul class="nav navbar-nav navbar-right">
-
-          <li><a onclick="scrollBody(this)" name="#ourservce" class="ourservce  " >Login</a></li>
+          <li><a onclick="scrollBody(this)" name="#ourservce" class="ourservce" href="/525station/InvitateInteriormain" >主站</a></li>
+          <li><a href="/525station/loginAccount" onclick="scrollBody(this)" name="#ourservce" class="ourservce  " >Login</a></li>
           <li><a onclick="scrollBody(this)" name="#ourschedule" class="active">Register</a></li>
           <li><a onclick="scrollBody(this)" name="#ourmenbers" class="navbar-right">Contact us</a></li>
 
@@ -80,7 +80,7 @@
           <div class="row"><div>nickname:</div><input maxlength="100" name="nickname" type="text" placeholder="your nickname"></div>
           <div class="row"><div>username:</div><input maxlength="19" name="username" type="text" placeholder="your username"></div>
           <div class="row"><div>password:</div><input maxlength="20"name="password" type="text" placeholder="your password"></div>
-          <div class="row "><div>gender:</div><div class="gender"><input type="radio" name="gender" id="male" value="male" ><label  for="male">男</label><input type="radio" name="gender" value="female" ><label for="female">女</label><input type="radio" name="gender" value="secret" ><label for="secret">保密</label></div></div>
+          <div class="row "><div>gender:</div><div class="gender"><input type="radio" name="gender" id="male" value="male" ><label  for="male">男</label><input type="radio" name="gender" id="female" value="female" ><label for="female">女</label><input type="radio" name="gender" id="secret" value="secret" ><label for="secret">保密</label></div></div>
           
           <div class="row"><div>tell:</div><input  maxlength="11" name="tell" type="text" placeholder="your tell"></div>
           <div class="row"><div>email:</div><input name="email" type="text" placeholder="your email"></div>

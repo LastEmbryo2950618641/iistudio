@@ -23,11 +23,10 @@
     <dl class="layui-nav-child">
       <dd><a href="javascript:;">修改信息</a></dd>
       <dd><a href="javascript:;">安全管理</a></dd>
-      <dd><a href="javascript:;">退了</a></dd>
+      <dd><a href="/525station/Administrator/exitMp">退了</a></dd>
     </dl>
   </li>
-    <li class="layui-nav-item "><a href="">内部网站</a></li>
-        <li class="layui-nav-item "><a href="">外部网站</a></li>
+        <li class="layui-nav-item "><a href="/525station/InvitateInteriormain">进入选择界面</a></li>
   </ul>           
   
   <fieldset class="layui-elem-field layui-field-title" >

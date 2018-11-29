@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import cn.com.iistudio.entity.ICurrentUser;
@@ -23,8 +24,8 @@ import cn.com.iistudio.service.serviceinter.MainInter;
 
 /**
  * @ClassName:DoEnterToMainController
- * @Description:Controller�����ص�����������url
- * @author:����
+ * @Description:Controller锟斤拷锟斤拷锟截碉拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷url
+ * @author:锟斤拷锟斤拷
  * @date:2018.11.8
  * @version:1.0
  *
@@ -32,9 +33,9 @@ import cn.com.iistudio.service.serviceinter.MainInter;
 
 @Controller
 public class MainController {
-	//��ǰ�û�
+	//锟斤拷前锟矫伙拷
     @Autowired
-  	ICurrentUser currentUser;
+  	ICurrentUser icurrentUser;
     @Autowired
     MainInter mainInter;
 
@@ -44,10 +45,17 @@ public class MainController {
     @Autowired
     InfromMapper infromMapper;
 
+    @RequestMapping("resgiterAccount")
+	public ModelAndView toRegisterPage()
+	{
+		ModelAndView modelAndView =new ModelAndView();
+		modelAndView.setViewName("main/registerpage");
 
+		return modelAndView;
+	}
      /**
       * @Title: /
-      * @Description:���ص�."/"��url������ת��/index.jsp
+      * @Description:锟斤拷锟截碉拷."/"锟斤拷url锟斤拷锟斤拷锟斤拷转锟斤拷/index.jsp
       * @param
       * @return:String
       * @throws
@@ -58,51 +66,44 @@ public class MainController {
 	        return "index";
 
 	    }
+	 @RequestMapping("loginAccount")
+		public ModelAndView toLoginPage()
+		{
+
+			ModelAndView modelAndView =new ModelAndView();
+			modelAndView.setViewName("main/loginpage");
+			return modelAndView;
+		}
 
 
-     /**
-      * @Title: /main.asp
-      * @Description:���ص�.��/main.asp����url�����͵�ǰ�û���Ϣ(user)����ת��/main/main.jsp
-      * @param
-      * @return:ModelAndView
-      * @throws
-      */
-	 @RequestMapping("/main.asp")
-	 public ModelAndView indexToMain() {
 
-		 ModelAndView modelAndView = new ModelAndView();
-		 modelAndView.addObject("user", currentUser.getUser());
-		 modelAndView.setViewName("main/main");
-		 return modelAndView;
-	 }
-
-
-		@RequestMapping("/interiormain.php")
+		@RequestMapping("/InvitateInteriormain")
 		public ModelAndView loginSuccessEnter()
 		{
 			ModelAndView mav = new ModelAndView();
-			//��ǰ�û�
-			User user = new User();
-			user = currentUser.getUser();
+			//锟斤拷前锟矫伙拷
+				User user = new User();
+			  
+				user = icurrentUser.getUser();
 			
-
-			if(!StringUtils.isEmpty(user))
+			if(user != null)
 			{
-
-				if(!user.getPrivilege().equals("2"))
+				if(user.getPrivilege().equals("1"))
 				{
-					mav.setViewName("redirect:interiormain");
+					mav.setViewName("redirect:interiormain?user=menber");
 				}
-				else
+				else if(user.getPrivilege().equals("2"))
 				{
 					mav.setViewName("main/select");
 				}
-			
 			}
-			else
+		  else 
 			{
-			mav.setViewName("main/loginpage");
+				mav.setViewName("redirect:interiormain?user=tourist");
+				
 			}
+			
+			
 
 			return mav;
 
@@ -114,7 +115,7 @@ public class MainController {
 			ModelAndView mav = new ModelAndView();
 			List<User> list = AdministratorIpml.getAllMembers();
 			User user = new User();
-			user = currentUser.getUser();
+			user = icurrentUser.getUser();
 			
 			mav.addObject("notice", new Infrom());
 			mav.addObject("membersList", list);
@@ -125,22 +126,46 @@ public class MainController {
 		}
 		
 		@RequestMapping("/interiormain")
-		public ModelAndView entryInteriormain()
+		public ModelAndView entryInteriormain(@RequestParam("user") String user)
 		{	
+			
 			ModelAndView mav = new ModelAndView();
 			List<StudioNews> studioNewsList = mainInter.readDStudioNews(3);
-			User user = new User();
-			user = currentUser.getUser();
+		    
+			
+			
+			User currentUser = icurrentUser.getUser();
+			
 		
 			
+			if(user.equals("menber"))
+			{
 		    mav.addObject("information", infromMapper.getNumber(4));
 		    mav.addObject("informations", infromMapper.getless(4));
+		    mav.addObject("aiResourceList", mainInter.readResource(10, "content", "ai"));
+		    mav.addObject("wfeResourceList", mainInter.readResource(10, "content", "wfe"));
+		    mav.addObject("reResourceList", mainInter.readResource(10, "content", "re"));	 
 		    
-		    
-			mav.addObject("currentUser", user);
+			mav.addObject("currentUser", currentUser);
 			mav.addObject("studioNewsList", studioNewsList);
+			}
+			else if(user.equals("tourist"))
+			{
+				    mav.addObject("information", infromMapper.getNumberByType(4, "all"));
+				    mav.addObject("informations", infromMapper.getlessByType(5, "all"));
+				    
+				    mav.addObject("aiResourceList", mainInter.readResource(10, "content", "ai"));
+				    mav.addObject("wfeResourceList", mainInter.readResource(10, "content", "wfe"));
+				    mav.addObject("reResourceList", mainInter.readResource(10, "content", "be"));
+				    mav.addObject("bdResourceList", mainInter.readResource(10, "content", "bd"));
+				    
+					
+					mav.addObject("studioNewsList", studioNewsList);
+				
+			}
 			mav.setViewName("main/interiormain");
 			
 			return mav;
 		}
+		
 }

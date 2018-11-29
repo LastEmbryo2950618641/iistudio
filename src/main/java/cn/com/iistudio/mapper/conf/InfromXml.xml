@@ -25,6 +25,15 @@
    SELECT * FROM (SELECT * FROM Notice ORDER BY Notice.pubdata) as t LIMIT #{number-1}, 8
 </select>
 
+<select id="getNumberByType" resultType="cn.com.iistudio.entity.Infrom">
+   SELECT * FROM (SELECT * FROM Notice ORDER BY Notice.pubdata) as t WHERE t.scope = #{1} LIMIT 0,#{0} 
+</select>
+
+
+<select id="getlessByType" resultType="cn.com.iistudio.entity.Infrom">
+   SELECT * FROM (SELECT * FROM Notice ORDER BY Notice.pubdata) as t WHERE t.scope = #{1} LIMIT 0, #{0}
+</select>
+
 
 <insert id="insertNotice">
   INSERT INTO Notice(title,description,text,pubdata,username,scope) VALUES(#{title},#{description},#{text},#{pubdata},#{username},#{scope})

@@ -16,25 +16,25 @@ public class InfromImpl implements InfromInter {
 	InfromMapper infromMapper;
 
 	@Override
-	public List<StudioNews> getAllinformation() {
+	public List<Infrom> getAllinformation() {
 		// TODO Auto-generated method stub
 		return infromMapper.getAllinformation();
 	}
 
 	@Override
-	public List<StudioNews> getUserinformation(String username) {
+	public List<Infrom> getUserinformation(String username) {
 		// TODO Auto-generated method stub
 		return infromMapper.getUserinformation(username);
 	}
 
 	@Override
-	public StudioNews getOneinformation(int id) {
+	public Infrom getOneinformation(int id) {
 		// TODO Auto-generated method stub
 		return infromMapper.getOneinformation(id);
 	}
 
 	@Override
-	public List<StudioNews> getNumber(int number) {
+	public List<Infrom> getNumber(int number) {
 		// TODO Auto-generated method stub
 		return infromMapper.getNumber(number);
 	}

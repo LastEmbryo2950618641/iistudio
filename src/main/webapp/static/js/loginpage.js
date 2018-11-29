@@ -8,13 +8,13 @@ function submit() {
 
   var username,password,code;
     username = $("input[name='username']").val();
-    alert(username);
+   
     if (res.usernameR.test(username)) {
       password = $("input[name='password']").val();
-      alert(password);
+     
       if (res.passwordR.test(password)) {
     	  
-    	  alert(22);
+    	
         var isSuccess;
         code = $("input[name='securitycode']").val();
         var codeJson = {
@@ -40,13 +40,20 @@ function submit() {
               var loginDataJson = JSON.stringify(loginData);
               $.ajax({
                 type: "POST",
-                url: "/525station/login/loginCheck.php",
+                url: "/525station/login/loginCheck",
                 contentType: "application/json; charset=utf-8",
                 data: loginDataJson,
                 dataType: "json",
                 success: function(data) {
-                	
-                    window.location.assign("/525station/interiormain.php");
+                	if(data)
+                		{
+                          window.location.assign("/525station/InvitateInteriormain");
+                		}
+                	else
+                		{
+                		  alert("账号或者密码错误");
+                		  window.location.assign("./");
+                		}
                 },
                 error: function(data) {
                    alert("登陆信息上传错误");

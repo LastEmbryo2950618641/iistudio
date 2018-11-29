@@ -14,13 +14,13 @@ function clip() {
       "height": ""+c.h,
       "base64":imagebase64
     }
-    alert("x:"+image.x+"  h:"+image.height);
+   
 
     $(".upImage .doUpImage p").css({
       "color": "green"
     });
     $(".upImage .doUpImage p").html("had file");
-    alert(image.width);
+ 
   }
   // Create variables (in this scope) to hold the API and image size
   var jcrop_api,
@@ -95,6 +95,7 @@ function showImage() {
 }
 
 function submit() {
+	 
   var res = {
     "usernameR": /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])^[a-zA-Z0-9]{14,19}$/,
     "passwordR": /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*!|@|#)^[a-zA-Z0-9!@#]{15,20}$/,
@@ -113,6 +114,7 @@ function submit() {
 
         if ($("input[name='gender']:checked").val()) {
           gender = $("input[name='gender']:checked").val();
+         
           tell = $("input[name='tell']").val();
 
           if (res.tellR.test(tell)) {
@@ -177,10 +179,9 @@ function submit() {
 
 
 
-                                                    	alert(data);
                                                  	   if(data)
                                                  		   {
-                                               	   alert(image.base64);
+                                               	  
                                                	  var imageJson = JSON.stringify(image);
                                                      $.ajax ({
                                                        type: "POST",
@@ -189,12 +190,14 @@ function submit() {
                                                        data: imageJson,
                                                        dataType: "json",
                                                        success: function(data) {
-
-
-
-
-
-                                                    	   window.location.assign("/525station/resgiter/loginAccount.asp");
+                                                    	   if(data)
+                                                    		   {
+                                                    	         window.location.assign("/525station/loginAccount");
+                                                    		   }
+                                                    	   else
+                                                    		   {
+                                                    		      alert("注册失败");
+                                                    		   }
                                                        },
 
 

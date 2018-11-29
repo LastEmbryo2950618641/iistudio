@@ -124,5 +124,18 @@ public class AdministratorController {
 
 		
 	}
+	
+	@RequestMapping("exitMp")
+	public  ModelAndView exitMp()
+	{
+		iCurrentUser.setUser(null);
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("redirect:/InvitateInteriormain");
+		return modelAndView;
+
+		
+	}
+	
+	
 
 }

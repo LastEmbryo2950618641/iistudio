@@ -8,13 +8,13 @@ import cn.com.iistudio.entity.StudioNews;
 public interface InfromInter {
     
 	
-	   public List<StudioNews> getAllinformation();
+	   public List<Infrom> getAllinformation();
 
-	   public List<StudioNews> getUserinformation(String username);
+	   public List<Infrom> getUserinformation(String username);
 
-	   public StudioNews getOneinformation(int id);
+	   public Infrom getOneinformation(int id);
 
-	   public List<StudioNews> getNumber(int number);
+	   public List<Infrom> getNumber(int number);
 
 	   public Boolean information(Infrom infrom);
 }

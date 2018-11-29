@@ -5,12 +5,14 @@ import java.sql.Timestamp;
 public class Resource {
 
 	private int id;
+	private String nickname;
 	private String username;
 	private Timestamp pubdata;
     private String title;
     private String description;
     private String typeByContent;
 	private String typeByFormat;
+	
 	public int getId() {
 		return id;
 	}
@@ -53,7 +55,19 @@ public class Resource {
 	public void setTypeByFormat(String typeByFormat) {
 		this.typeByFormat = typeByFormat;
 	}
-
+	/**
+	 * @return the nickname
+	 */
+	public String getNickname() {
+		return nickname;
+	}
+	/**
+	 * @param nickname the nickname to set
+	 */
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+	
 
 
 

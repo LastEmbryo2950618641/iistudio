@@ -30,6 +30,7 @@ public class MainIpml implements MainInter{
     @Autowired
     MainInter mainInter;
     
+   
 	@Override
 	public List<StudioNews> readDStudioNews(int num) {
 		// TODO Auto-generated method stub
@@ -39,32 +40,43 @@ public class MainIpml implements MainInter{
 		
 	}
 	
-	public List<Resource> readResource(int num)
-	{
-		return null;
-		
-	}
+	/**
+	 * 
+	* @Title: readResource 
+	* @Description: TODO(这里用一句话描述这个方法的作用) 
+	* @param @param num
+	* @param @return
+	* @return List<Resource>
+	* @throws 
+	 */
 
 	@Override
 	public List<Resource> readResource(int num, String typeOftype, String type) {
 		// TODO Auto-generated method stub
-		List<Resource> list = null;
+		List<Resource> list;
 		if(num == 0)
 		{
 			list = resourceMapper.getAllResources();
 		}
 		else if(typeOftype.equalsIgnoreCase("CONTENT"))
 		{
-			String contentType = type;
-			list = resourceMapper.getResourcesByContent(num, contentType);
+			String formatType = type;
+			
+			list = resourceMapper.getResourcesByContent(num, formatType);
 			
 		}
 		else if(typeOftype.equalsIgnoreCase("FORMAT")) 
 		{
 			String formatType = type;
-			list = resourceMapper.getResourcesByContent(num, formatType);
+			list = resourceMapper.getResourcesByFormat(num, formatType);
 		}
-		
+		else if(typeOftype.equalsIgnoreCase("ALL"))
+		{
+			list = resourceMapper.getResources(10);
+		}
+		else {
+			return null;
+		}
 		
 		return list;
 	}

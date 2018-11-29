@@ -43,14 +43,7 @@ public class LoginController {
       	ICurrentUser currentUser;
 
 
-		@RequestMapping("loginAccount.asp")
-		public ModelAndView toRegisterPage()
-		{
-
-			ModelAndView modelAndView =new ModelAndView();
-			modelAndView.setViewName("main/loginpage");
-			return modelAndView;
-		}
+		
 		/**
 		 * @Title:loginAccount.asp
 		 * @description:������֤�������ж�
@@ -83,7 +76,7 @@ public class LoginController {
 		 *
 		 */
 		@ResponseBody
-		@RequestMapping(value="loginCheck.php")
+		@RequestMapping(value="loginCheck")
 		public boolean tocheckPage(@RequestBody VlaUser vlaUser  ) {
 			String UserName=vlaUser.getUsername();
 			String password=vlaUser.getPassword();

@@ -56,7 +56,7 @@
         <div id="enter">
           <h1 id="logo">IISTUDIO</h1>
           <p>a team for woking</p>
-          <a href="/525station/main.asp">CLICK HERE</a>
+          <a href="/525station/InvitateInteriormain">CLICK HERE</a>
           <span class="glyphicon glyphicon-hand-down"></span>
         </div>
       </div>

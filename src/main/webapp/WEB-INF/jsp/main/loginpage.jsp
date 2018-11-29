@@ -28,16 +28,16 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">IISTUDIO</a>
+        <a class="navbar-brand" href="/525station/">IISTUDIO</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
         <ul class="nav navbar-nav navbar-right">
-
+          <li><a onclick="scrollBody(this)" name="#ourservce" class="ourservce"  href="/525station/InvitateInteriormain">主站</a></li>
           <li><a onclick="scrollBody(this)" name="#ourservce" class="ourservce  active" >Login</a></li>
-          <li><a onclick="scrollBody(this)" name="#ourschedule">Register</a></li>
+          <li><a href="/525station/resgiterAccount" onclick="scrollBody(this)" name="#ourschedule">Register</a></li>
           <li><a onclick="scrollBody(this)" name="#ourmenbers" class="navbar-right">Contact us</a></li>
 
 

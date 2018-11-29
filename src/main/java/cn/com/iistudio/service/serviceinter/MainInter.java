@@ -12,4 +12,5 @@ public interface MainInter {
 	public List<StudioNews> readDStudioNews(int num);
 	public List<Resource> readResource(int num,String typeOftype,String type);
     public JSONObject getMenbers();
+ 
 }

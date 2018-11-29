@@ -145,7 +145,7 @@ public class RegisterController {
 
 
 	//��ת��ע������
-	@RequestMapping("resgiterAccount.asp")
+	@RequestMapping("resgiterAccount")
 	public ModelAndView toRegisterPage()
 	{
 		ModelAndView modelAndView =new ModelAndView();
