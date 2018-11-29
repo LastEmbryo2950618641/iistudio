@@ -87,4 +87,17 @@ public class AdministratorIpml implements AdministratorInter {
 		infromMapper.insertNotice(infrom);
 	}
 
+	@Override
+	public Boolean updata(User user) {
+		// TODO Auto-generated method stub
+		if(user==null) {
+			return false;
+		}
+		memberMapper.update(user);
+		return true;
+		
+		
+		
+	}
+
 }

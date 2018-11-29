@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import cn.com.iistudio.entity.Resource;
 import cn.com.iistudio.entity.StudioNews;
 import cn.com.iistudio.entity.User;
-import cn.com.iistudio.mapper.InfromMapper;
 import cn.com.iistudio.mapper.MemberMapper;
 import cn.com.iistudio.mapper.ResourceMapper;
 import cn.com.iistudio.mapper.StudioNewMapper;
@@ -39,6 +38,16 @@ public class MainIpml implements MainInter{
 		
 	}
 	
+	/**
+	 * 
+	
+	* @Title: readResource
+	
+	* @Description: 
+	
+	* @param num
+	* @return
+	 */
 	public List<Resource> readResource(int num)
 	{
 		return null;
@@ -70,11 +79,16 @@ public class MainIpml implements MainInter{
 	}
 
 	@Override
-	public JSONObject getMenbers() {
+	public JSONArray getMenbers() {
 		// TODO Auto-generated method stub
 		List<User> list = memberMapper.getAllMembers();
-		JSONArray json = JSONArray.fromObject(list);     
-		return null;
+		JSONArray json = JSONArray.fromObject(list); 
+		System.out.println(list);
+		
+		//String jsonwork=json.toString();
+		//String jsons=jsonwork.substring(1,jsonwork.length()-1);
+		//JSONObject json = JSONObject.fromObject(list1);
+		return json;
 	}
 
 }

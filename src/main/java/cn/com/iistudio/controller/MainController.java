@@ -1,11 +1,20 @@
 package cn.com.iistudio.controller;
 
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MoveAction;
+
+import org.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import cn.com.iistudio.entity.ICurrentUser;
@@ -115,7 +124,7 @@ public class MainController {
 			List<User> list = AdministratorIpml.getAllMembers();
 			User user = new User();
 			user = currentUser.getUser();
-			
+		  
 			mav.addObject("notice", new Infrom());
 			mav.addObject("membersList", list);
 			mav.addObject("currentUser", user);
@@ -131,16 +140,46 @@ public class MainController {
 			List<StudioNews> studioNewsList = mainInter.readDStudioNews(3);
 			User user = new User();
 			user = currentUser.getUser();
-		
+			
 			
 		    mav.addObject("information", infromMapper.getNumber(4));
 		    mav.addObject("informations", infromMapper.getless(4));
-		    
-		    
+		   
 			mav.addObject("currentUser", user);
 			mav.addObject("studioNewsList", studioNewsList);
 			mav.setViewName("main/interiormain");
 			
 			return mav;
 		}
+
+		@RequestMapping(value="/json.do",method = RequestMethod.GET)
+		public @ResponseBody Map<String, Object> getJson() {
+//			net.sf.json.JSONArray data=mainInter.getMenbers();
+//			String data1=data.toString();
+//			
+//		    String data3="{\"code\":0,\"msg\":0,\"data\":" +data1 + "}";
+//			System.out.println(data3);
+//			System.out.println("------------------------------");
+			net.sf.json.JSONArray data=mainInter.getMenbers();
+			Map<String,Object> datasource=new LinkedHashMap<String,Object>();
+			 datasource.put("code",0);
+		     datasource.put("count",2);
+		     datasource.put("data", data);
+			return datasource;
+			
+		}
+		@ResponseBody
+		@RequestMapping(value="toturnchange",method = RequestMethod.GET)
+		public ModelAndView toturnchange(User user) {
+			System.out.println(user.getPassword());
+			System.out.println(user.getUsername());
+			ModelAndView modelAndView =new ModelAndView();
+			modelAndView.addObject("username", user.getUsername());
+			modelAndView.setViewName("main/edit");
+			return modelAndView;
+			
+		}
+		
+		
+		
 }

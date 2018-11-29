@@ -1,3 +1,5 @@
+
+
 $(document).ready(function(){
 	
 	$("#common-btn").click(function(){
@@ -18,6 +20,7 @@ $(document).ready(function(){
 	
 });
         
+
 
 layui.use('element', function(){
     var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
@@ -86,7 +89,32 @@ layui.use('table', function(){
       layer.msg('ID：'+ data.id + ' 的查看操作');
     } else if(obj.event === 'del'){
       layer.confirm('真的删除行么', function(index){
-        obj.del();
+    	  console.log(obj);        	 
+    	  console.log(data);        			
+    	  //layer.close(index);         			
+    	  $.ajax({                		
+    		  url: "/525station/Administrator/delete",                		
+    		  type: "POST",                		
+    		  data:{'username':data.username},                		
+    		  dataType: "json",               			
+    		  success: function(data){                                		
+    			  if(data==null){                     			
+    				  layer.msg("删除失败", {icon: 5});                                            		
+    				  }else{                                             		
+    					  //删除这一行                        		
+    					  obj.del();                       			
+    					  //关闭弹框                        		
+    					  layer.close(index);                        		
+    					  layer.msg("删除成功", {icon: 6});                        		  
+    					  layer.closeAll();			                   
+    					  parent.location.reload();                        		
+    					  Load(); //删除完需要加载数据                   			 
+    					  }                		
+    			  },                		
+    			  error:function(){                			
+    				  alert(data);                		
+    				  },
+    	  });
         layer.close(index);
       });
     } else if(obj.event === 'edit'){
@@ -99,6 +127,34 @@ layui.use('table', function(){
       var checkStatus = table.checkStatus('idTest')
       ,data = checkStatus.data;
       layer.alert(JSON.stringify(data));
+      var usernames = [];
+      for(var i=0;i<data.length;i++){
+    	  var one={
+    		username:data.username,
+    	  }
+    	  usernames.push(one);
+      }
+      
+      $.ajax({				
+    	  type:"post",				
+    	  url:"/525station/Administrator/deleteSelected",				
+    	  data : JSON.stringify(usernames),                                
+    	  dataType:"json",				
+    	  contentType:"application/json",                                
+    	  async:false,				
+    	  success:function(data){ 					
+    		  if(data.code == 200){						
+    			  layer.msg('发布成功！', {		  					}, function(){
+    				  //跳转的URL重定向到新的页面，这里是直接跳转到个人中心		  					
+    				  alert("删除完成");		  					
+    				  }); 					
+    			  }					
+    		  else{					        
+    			  layer.alert("res"+result);						
+    			  layer.msg(data.message);					
+    			  }				
+    		  }			
+         });  
     }
     ,getCheckLength: function(){ //获取选中数目
       var checkStatus = table.checkStatus('idTest')
@@ -116,6 +172,5 @@ layui.use('table', function(){
     active[type] ? active[type].call(this) : '';
   });
 });
-
 
       

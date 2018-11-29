@@ -49,41 +49,33 @@
         <div class="layui-col-xs6 layui-col-md12">
           <div class="grid-demo grid-demo-bg2">
             <div class="layui-btn-group demoTable">
-                  <button class="layui-btn" data-type="getCheckData">获取选中行数据</button>
+                   <button class="layui-btn" data-type="getCheckData">批量删除</button>
                   <button class="layui-btn" data-type="getCheckLength">获取选中数目</button>
-                  <button class="layui-btn" data-type="isAll">验证是否全选</button>
+            
                 </div>
    
-                <table class="layui-table" lay-data="{cellMinWidth: 80,height: 'full-332', url:'/demo/table/user/', page:true, id:'idTest'}" lay-filter="demo">
+                <table class="layui-table" lay-data="{cellMinWidth: 80,height: 'full-332', url:'/525station/json.do', page:true, id:'idTest'}" lay-filter="demo">
                   <thead>
                     <tr>
                       <th lay-data="{type:'checkbox', fixed: 'left'}"></th>
-                      <th lay-data="{field:'id', width:120}">昵称</th>
+                      <th lay-data="{field:'nickname', width:120}">昵称</th>
                       <th lay-data="{field:'username', width:120}">用户名</th>
                       <th lay-data="{field:'password', width:120}">密码</th>
-                      <th lay-data="{field:'sex', width:60}">性别</th>
+                      <th lay-data="{field:'gender', width:60}">性别</th>
                       <th lay-data="{field:'email', width:120}">邮件</th>
-                      <th lay-data="{field:'phone', width:120}">电话号码</th>
+                      <th lay-data="{field:'tel', width:120}">电话号码</th>
                       <th lay-data="{field:'introduce', width:120}">介绍</th>
-                      <th lay-data="{field:'jurisdiction', width:10, sort: true}">权限</th>
-                      
+                      <th lay-data="{field:'privilege', width:100, sort: true}">权限</th>
+                      <th lay-data="{fixed: 'right', width:178, align:'center', toolbar: '#barDemo'}"></th>
                     </tr>
-                    <c:forEach items="${membersList}" var="item">
-                    <tr>
-                             
-		                      <td>${item.getNickname()}</td>
-		                      <td>${item.getUsername()}</td>
-		                      <td>${item.getPassword()}</td>
-		                      <td>${item.getGender()}</td>
-		                      <td>${item.getEmail()}</td>
-		                      <td>${item.getTel()}</td>
-		                      <td>${item.getIntroduce()}</td>
-		                      <td>${item.getPrivilege()}</td>
-
-                    </tr>
-                     </c:forEach>
+                    
                   </thead>
                 </table>
+                <script type="text/html" id="barDemo">
+          <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
+          <a class="layui-btn layui-btn-xs"  onclick="WeAdminEdit('编辑','/525station/toturnchange', 1, 600, 400)" href="javascript:;">编辑</a>
+          <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+              </script>
           </div>
         </div>
 
@@ -194,10 +186,43 @@
         return false;
       });
      
-     
-      
+      /*弹出层+传递ID参数*/
+      window.WeAdminEdit = function(title, url, id, w, h) {
+          if(title == null || title == '') {
+              title = false;
+          };
+          if(url == null || url == '') {
+              url = "404.html";
+          };
+          if(w == null || w == '') {
+              w = ($(window).width() * 0.9);
+          };
+          if(h == null || h == '') {
+              h = ($(window).height() - 50);
+          };
+          layer.open({
+              type: 2,
+              area: [w + 'px', h + 'px'],
+              fix: false, //不固定
+              maxmin: true,
+              shadeClose: true,
+              shade: 0.4,
+              title: title,
+              content: url,
+              success: function(layero, index) {
+                  //向iframe页的id=house的元素传值  // 参考 https://yq.aliyun.com/ziliao/133150
+                  var body = layer.getChildFrame('body', index);
+                  body.contents().find("#dataId").val(id);
+                  console.log(id);
+              },
+              error: function(layero, index) {
+                  alert("aaa");
+              }
+          });
+      }
       
     });
+    
     </script>
 <script src="/525station/static/js/managepage.js"></script>
 
