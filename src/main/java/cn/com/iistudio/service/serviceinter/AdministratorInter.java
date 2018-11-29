@@ -12,5 +12,6 @@ public interface AdministratorInter {
     public List<User> getAllMembers();
     public void chengePrivilege(String command,String privilege,String username);
     public void storgeInform(Infrom infrom,String scope);
+    public Boolean updata(User user);
  
 }

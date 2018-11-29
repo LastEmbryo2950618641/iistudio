@@ -8,5 +8,5 @@ public interface MemberMapper {
 	
 	public void deleteMember(String username);
 	public List<User> getAllMembers();
-	
+    public void update(User user);
 }

@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -14,7 +15,13 @@ import cn.com.iistudio.entity.Infrom;
 import cn.com.iistudio.entity.User;
 import cn.com.iistudio.service.serviceinter.AdministratorInter;
 import cn.com.iistudio.service.serviceinter.InfromInter;
+import cn.com.iistudio.service.serviceinter.MainInter;
+import net.sf.json.JSONObject;
+
 import java.util.Date;
+
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MoveAction;
+
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
@@ -27,6 +34,8 @@ public class AdministratorController {
 	InfromInter infromInter;
 	@Autowired
 	AdministratorInter AdministratorIpml;
+	@Autowired
+	MainInter mainInter;
 
 	@RequestMapping("admire")
 	public ModelAndView checkAdmire() {
@@ -68,7 +77,7 @@ public class AdministratorController {
 	}
 
 
-	@RequestMapping("delete")
+	@RequestMapping(value="delete",method = RequestMethod.POST)
 	public ModelAndView delect(@RequestParam("username") String username)
 	{
 		AdministratorIpml.deleteMember(username);
@@ -112,8 +121,8 @@ public class AdministratorController {
 		modelAndView.setViewName("redirect:/525station/administrator");
 		return modelAndView;
 	}
-	
-	
+
+
 	@RequestMapping("releaseInform")
 	public ModelAndView reducePrivilege(@ModelAttribute("notice") Infrom infrom,@RequestParam("scope") String scope)
 	{
@@ -122,9 +131,10 @@ public class AdministratorController {
 		modelAndView.setViewName("redirect:/administrator");
 		return modelAndView;
 
-		
+
 	}
-	
+
+
 	@RequestMapping("exitMp")
 	public  ModelAndView exitMp()
 	{
@@ -133,9 +143,24 @@ public class AdministratorController {
 		modelAndView.setViewName("redirect:/InvitateInteriormain");
 		return modelAndView;
 
-		
+
 	}
-	
-	
+
+
+	@ResponseBody
+	@RequestMapping(value="update",method=RequestMethod.POST)
+	public ModelAndView update(User user) {
+		System.out.println(user.getIntroduce());
+		ModelAndView modelAndView=new ModelAndView();
+		if(user.getPassword()==null&& user.getNickname()==null&&user.getIntroduce()==null) {
+			modelAndView.setViewName("main/edit");
+			return modelAndView;
+		}else {
+			AdministratorIpml.updata(user);
+			modelAndView.setViewName("");
+		return modelAndView;
+		}
+	}
+
 
 }
