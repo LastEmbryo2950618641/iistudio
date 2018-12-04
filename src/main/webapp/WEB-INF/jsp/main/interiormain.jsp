@@ -64,15 +64,15 @@
 
         <div class="grid-demo grid-demo-bg2">
 
-          <div class="layui-carousel" id="carouselMain">
+          <div class="layui-carousel"  id="test10">
             <div carousel-item="">
-              <div><img src="525station/static/images/e0552a97b5206c64e1ef6e4ab2a6ba26.jpg"></div>
-              <div><img src="//res.layui.com/images/layui/demo/2.png"></div>
-              <div><img src="//res.layui.com/images/layui/demo/3.png"></div>
-              <div><img src="//res.layui.com/images/layui/demo/4.png"></div>
-              <div><img src="//res.layui.com/images/layui/demo/5.png"></div>
-              <div><img src="//res.layui.com/images/layui/demo/6.png"></div>
-              <div><img src="//res.layui.com/images/layui/demo/7.png"></div>
+              <div><img src="static/images/001.jpg"></div>
+              <div><img src="static/images/002.jpg"></div>
+              <div><img src="static/images/003.jpg"></div>
+              <div><img src="static/images/004.jpg"></div>
+              <div><img src="static/images/005.jpg"></div>
+              <div><img src="static/images/006.jpg"></div>
+              <div><img src="static/images/007.jpg"></div>
             </div>
           </div>
 
@@ -99,7 +99,7 @@
 			                    ${item.getDescription()}
 			                </Sdycontant>
 			                    <Sdyimage>
-			                 <img src="/525station/static/images/Kona.jpg" alt="">
+			                 <img src="/525station/static/images/001.jpg" alt="">
 			                    </Sdyimage>
 			                  </div>
 			                  </div>
@@ -241,13 +241,13 @@
 
                           <c:forEach items="${aiResourceList}" var="item">
                           <a href="#">
-                              ${item.getTypeByFormat()};
+                              
                             <item>
                               <c:choose>
-                    	             <c:when test="${item.getTypeByFormat()=='ess'}">
+                    	             <c:when test="${item.getTypeByFormat()=='文章'}">
                     	             <i class="layui-icon layui-icon-file-b"></i>
                     	             </c:when>
-                    	             <c:when test="${item.getTypeByFormat()=='vid'}">
+                    	             <c:when test="${item.getTypeByFormat()=='视频'}">
                     	              <i class="layui-icon layui-icon-video"></i>
                     	             </c:when>
                     	             
@@ -300,7 +300,7 @@
                       <div class="layui-tab-item">
                       <resource>
                       
-                           <c:forEach items="${bigDataResourceList}" var="item">
+                           <c:forEach items="${bdResourceList}" var="item">
                           <a href="#">
                             <item>
                               <i class="layui-icon layui-icon-file-b"></i>《${item.getTitle() }》
@@ -375,7 +375,7 @@
 
        <div class="layui-footer footer footer-demo">
         <div class="layui-main">
-          11111111111111111111
+          525工作室出品&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;联系电话:232722477ERE
         </div>
       </div>
 
@@ -508,7 +508,78 @@
           ,last: false
         });
   });
-  </script>
+    
+    layui.use(['carousel', 'form'], function(){
+      var carousel = layui.carousel
+      ,form = layui.form;
+      
+      //常规轮播
+      carousel.render({
+        elem: '#test1'
+        ,arrow: 'always'
+      });
+      
+      //改变下时间间隔、动画类型、高度
+      carousel.render({
+        elem: '#test2'
+        ,interval: 1800
+        ,anim: 'fade'
+        ,height: '120px'
+      });
+      
+      //设定各种参数
+      var ins3 = carousel.render({
+        elem: '#test3'
+      });
+      //图片轮播
+      carousel.render({
+        elem: '#test10'
+        ,width: '778px'
+        ,height: '440px'
+        ,interval: 5000
+      });
+      
+      //事件
+      carousel.on('change(test4)', function(res){
+        console.log(res)
+      });
+      
+      var $ = layui.$, active = {
+        set: function(othis){
+          var THIS = 'layui-bg-normal'
+          ,key = othis.data('key')
+          ,options = {};
+          
+          othis.css('background-color', '#5FB878').siblings().removeAttr('style'); 
+          options[key] = othis.data('value');
+          ins3.reload(options);
+        }
+      };
+      
+      //监听开关
+      form.on('switch(autoplay)', function(){
+        ins3.reload({
+          autoplay: this.checked
+        });
+      });
+      
+      $('.demoSet').on('keyup', function(){
+        var value = this.value
+        ,options = {};
+        if(!/^\d+$/.test(value)) return;
+        
+        options[this.name] = value;
+        ins3.reload(options);
+      });
+      
+      //其它示例
+      $('.demoTest .layui-btn').on('click', function(){
+        var othis = $(this), type = othis.data('type');
+        active[type] ? active[type].call(this, othis) : '';
+      });
+    });
+    </script>
+
 
 </body>
 </html>

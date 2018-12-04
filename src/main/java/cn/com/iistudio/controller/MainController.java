@@ -151,9 +151,10 @@ public class MainController {
 		    mav.addObject("information", infromMapper.getNumber(4));
 		    mav.addObject("informations", infromMapper.getless(4));
 		    mav.addObject("aiResourceList", mainInter.readResource(10, "content", "ai"));
-		    mav.addObject("wfeResourceList", mainInter.readResource(10, "content", "wfe"));
+		    mav.addObject("wfeResourceList", mainInter.readResource(10, "content", "fe"));
 		    mav.addObject("reResourceList", mainInter.readResource(10, "content", "re"));
-
+		    mav.addObject("bdResourceList", mainInter.readResource(10, "content", "bd"));
+		    System.out.println(mainInter.readResource(10, "content", "bd"));
 			mav.addObject("currentUser", currentUser);
 			mav.addObject("studioNewsList", studioNewsList);
 			}
@@ -163,7 +164,7 @@ public class MainController {
 				    mav.addObject("informations", infromMapper.getlessByType(5, "all"));
 
 				    mav.addObject("aiResourceList", mainInter.readResource(10, "content", "ai"));
-				    mav.addObject("wfeResourceList", mainInter.readResource(10, "content", "wfe"));
+				    mav.addObject("wfeResourceList", mainInter.readResource(10, "content", "fe"));
 				    mav.addObject("reResourceList", mainInter.readResource(10, "content", "be"));
 				    mav.addObject("bdResourceList", mainInter.readResource(10, "content", "bd"));
 
@@ -204,6 +205,19 @@ public class MainController {
 
 		}
 
-
+		@ResponseBody
+		@RequestMapping(value="update",method=RequestMethod.POST)
+		public ModelAndView update(User user) {
+			System.out.println(user.getIntroduce());
+			ModelAndView modelAndView=new ModelAndView();
+			if(user.getPassword()==null&& user.getNickname()==null&&user.getIntroduce()==null) {
+				modelAndView.setViewName("main/edit");
+				return modelAndView;
+			}else {
+				AdministratorIpml.updata(user);
+				modelAndView.setViewName("redirect:/administrator");
+			return modelAndView;
+			}
+		}
 
 }

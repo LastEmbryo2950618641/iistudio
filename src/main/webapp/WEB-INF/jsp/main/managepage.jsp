@@ -72,7 +72,7 @@
                 </table>
                 <script type="text/html" id="barDemo">
           <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
-          <a class="layui-btn layui-btn-xs"  onclick="WeAdminEdit('编辑','/525station/toturnchange', 1, 600, 400)" href="javascript:;">编辑</a>
+          <a class="layui-btn layui-btn-xs"  onclick="WeAdminEdit('编辑','/525station/toturnchange', 1, 600, 400,id)" href="javascript:;">编辑</a>
           <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
               </script>
           </div>
@@ -186,7 +186,9 @@
       });
      
       /*弹出层+传递ID参数*/
-      window.WeAdminEdit = function(title, url, id, w, h) {
+      window.WeAdminEdit = function(title, url, id, w, h,idone) {
+    	  alert(idone);
+    	  alert(idone.username);
           if(title == null || title == '') {
               title = false;
           };

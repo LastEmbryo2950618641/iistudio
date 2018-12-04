@@ -20,7 +20,7 @@ function submit() {
         var codeJson = {
           "securitycode": code
         };
-        alert(codeJson.code);
+      
         var strJson = JSON.stringify(codeJson);
         $.ajax ({
           type: "POST",

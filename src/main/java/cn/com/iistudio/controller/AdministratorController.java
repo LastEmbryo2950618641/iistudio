@@ -147,20 +147,7 @@ public class AdministratorController {
 	}
 
 
-	@ResponseBody
-	@RequestMapping(value="update",method=RequestMethod.POST)
-	public ModelAndView update(User user) {
-		System.out.println(user.getIntroduce());
-		ModelAndView modelAndView=new ModelAndView();
-		if(user.getPassword()==null&& user.getNickname()==null&&user.getIntroduce()==null) {
-			modelAndView.setViewName("main/edit");
-			return modelAndView;
-		}else {
-			AdministratorIpml.updata(user);
-			modelAndView.setViewName("");
-		return modelAndView;
-		}
-	}
+	
 
 
 }

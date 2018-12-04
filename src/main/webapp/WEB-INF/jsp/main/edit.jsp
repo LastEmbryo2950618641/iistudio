@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="/525station/static/css/layui.css" media="all">
 </head>
 <body>
-    <div class="one">用户名&nbsp;&nbsp;&nbsp;&nbsp;<p></p></div>
+    <div class="one">用户名&nbsp;&nbsp;&nbsp;&nbsp;<p>${username}</p></div>
 	<form class="layui-form layui-form-pane" action="">
 		<div class="layui-form-item">
 			<label class="layui-form-label">昵称</label>
