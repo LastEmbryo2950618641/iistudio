@@ -35,6 +35,9 @@
 		            <dl class="layui-nav-child">
 		              <dd><a href="javascript:;">修改信息</a></dd>
 		              <dd><a href="/525station/Administrator/exitMp">出口</a></dd>
+		              <c:if test="${currentUser.getPrivilege().equals('2')}">
+	                <dd><a href="/525station/InvitateInteriormain">进入选择界面</a></dd>
+	              </c:if>
 		            </dl>
 	             </c:when>
 	             
@@ -42,10 +45,9 @@
 	            <a href="javascript:;"><img src="/525station/static/images/NoName.PNG" class="layui-nav-img">游客</a>
 	            <dl class="layui-nav-child">
 	              <dd><a href="/525station/resgiterAccount">注册</a></dd>
-	              <dd><a href="/525station/loginAccount">登录</a></dd>
-	              <c:if test="${currentUser.getPrivilege() == '2'}">
-	                <dd><a href="/525station/InvitateInteriormain">进入选择界面</a></dd>
-	              </c:if>
+	              <dd><a href="/525station/loginAccount">登录${currentUser.getPrivilege()}</a></dd>
+	              
+	              
 	            </dl>
            </c:otherwise>
            

@@ -14,7 +14,7 @@
 </select>
 
 <select id="getNumber" resultType="cn.com.iistudio.entity.Infrom" parameterType="int">
-   SELECT * FROM (SELECT * FROM Notice ORDER BY Notice.pubdata) as t LIMIT 0,#{number-1}
+   SELECT * FROM (SELECT * FROM Notice ORDER BY Notice.pubdata DESC) as t LIMIT 0,#{number-1}
 </select>
 
 <insert id="information" parameterType="cn.com.iistudio.entity.Infrom">
@@ -22,16 +22,16 @@
 </insert>
 
 <select id="getless" resultType="cn.com.iistudio.entity.Infrom" parameterType="int">
-   SELECT * FROM (SELECT * FROM Notice ORDER BY Notice.pubdata) as t LIMIT #{number-1}, 8
+   SELECT * FROM (SELECT * FROM Notice ORDER BY Notice.pubdata DESC) as t LIMIT #{number-1}, 8
 </select>
 
 <select id="getNumberByType" resultType="cn.com.iistudio.entity.Infrom">
-   SELECT * FROM (SELECT * FROM Notice ORDER BY Notice.pubdata) as t WHERE t.scope = #{1} LIMIT 0,#{0} 
+   SELECT * FROM (SELECT * FROM Notice ORDER BY Notice.pubdata DESC) as t WHERE t.scope = #{1} LIMIT 0,#{0} 
 </select>
 
 
 <select id="getlessByType" resultType="cn.com.iistudio.entity.Infrom">
-   SELECT * FROM (SELECT * FROM Notice ORDER BY Notice.pubdata) as t WHERE t.scope = #{1} LIMIT 0, #{0}
+   SELECT * FROM (SELECT * FROM Notice ORDER BY Notice.pubdata DESC) as t WHERE t.scope = #{1} LIMIT 0, #{0}
 </select>
 
 

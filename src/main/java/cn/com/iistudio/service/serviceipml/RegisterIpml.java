@@ -23,7 +23,7 @@ public class RegisterIpml implements RegisterInter{
 	@Autowired
 	//头像存储问文件夹路径
 	 User user;
-	 final String folderPath = "E:\\";
+	 final String folderPath = "/www/server/apache-tomcat-8.5.32/webapps/file/image";
 	 /**
 	  * @Description:处理头像
 	  * @param:UpImage

@@ -13,8 +13,9 @@ $(document).ready(function(){
 	
 	$("#inner-btn").click(function(){
 		$("#myform").attr({
-			action:"/525station/Administrator/releaseInform?scope=inside"
+			action:"/525station/Administrator/releaseInform?scope=inter"
 		});
+		$("#myform")[0].submit();
 	});
 	
 	

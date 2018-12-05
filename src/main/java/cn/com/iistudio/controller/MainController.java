@@ -148,15 +148,16 @@ public class MainController {
 
 			if(user.equals("menber"))
 			{
+				
 		    mav.addObject("information", infromMapper.getNumber(4));
 		    mav.addObject("informations", infromMapper.getless(4));
 		    mav.addObject("aiResourceList", mainInter.readResource(10, "content", "ai"));
 		    mav.addObject("wfeResourceList", mainInter.readResource(10, "content", "fe"));
 		    mav.addObject("reResourceList", mainInter.readResource(10, "content", "re"));
 		    mav.addObject("bdResourceList", mainInter.readResource(10, "content", "bd"));
-		    System.out.println(mainInter.readResource(10, "content", "bd"));
 			mav.addObject("currentUser", currentUser);
 			mav.addObject("studioNewsList", studioNewsList);
+			
 			}
 			else if(user.equals("tourist"))
 			{

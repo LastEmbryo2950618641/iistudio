@@ -160,7 +160,6 @@ public class RegisterController {
 	public ModelAndView toRegisterUpHeadImage()
 	{
 
-		System.out.println("test2 username:"+user.getUsername()+"\n");
 		ModelAndView modelAndView =new ModelAndView();
 		modelAndView.setViewName("main/registerpage2");
 		return modelAndView;

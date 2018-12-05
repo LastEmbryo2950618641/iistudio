@@ -24,7 +24,7 @@ function submit() {
         var strJson = JSON.stringify(codeJson);
         $.ajax ({
           type: "POST",
-          url: "/525station/login/login.code",
+          url: "/525station/login/login",
           contentType: "application/json; charset=utf-8",
           data: strJson,
           dataType: "json",

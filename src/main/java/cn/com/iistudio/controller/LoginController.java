@@ -52,7 +52,7 @@ public class LoginController {
 		 *
 		 */
 
-		@RequestMapping("login.code")
+		@RequestMapping("login")
 		@ResponseBody
 		public boolean toCheck(@RequestBody Code code) {
 			System.out.println("CODE:"+code.getSecuritycode());
